@@ -1,0 +1,35 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+
+
+
+.background-image {
+  background-image: url(../src/resident1.png) ;
+  position: relative;
+  overflow: hidden;
+ 
+
+
+ background-size: cover;
+ display: block;
+
+ height: 100%;
+ width: 100%;
+ left: 0;
+ position: fixed;
+ right: 0;
+ z-index: 1;
+
+}
+
+
+
+
+
+
+
+@import "bootstrap/scss/utilities/api";
