@@ -18,6 +18,14 @@ body{
   
 }
 
+div#infopagador{
+  background: rgba(255,164,58,255);
+ 
+  box-shadow: 0 4px 30px rgba(153, 0, 0, 0.1);
+  backdrop-filter: blur(1.6px);
+  -webkit-backdrop-filter: blur(1.6px);
+  border: 1px solid rgb(116,155,251);
+}
 
 
 
