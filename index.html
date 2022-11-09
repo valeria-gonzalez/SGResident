@@ -235,7 +235,8 @@
 
 <!-- Aqui es para guardar un pago-->
 <div class="modal fade" id="agregar-pago" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-scrollable">
+    
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar pago</h1>
@@ -283,6 +284,20 @@
             </div>
           </div>
           
+          <!-- Aqui esta el select para el titular -->
+          <div class="col-md-5">
+            <label for="id_titular" class="form-label">Id del titular</label>
+            <select class="form-select" id="id_titular" required="">
+              <option selected="" disabled="" value="">Escoger...</option>
+              <option>Nombre</option>
+             
+            </select>
+            <div class="invalid-feedback">
+              Seleccione una opcion
+            </div>
+          </div>
+          <!-- -->
+
           <div class="col-md-10">
             <label for="nombre_residente_pago" class="form-label">Nombre del residente</label>
             <input type="text" class="form-control" id="nombre_residente_pago"  required="">
@@ -295,7 +310,7 @@
           </div>
 <br>
 <div id="infopagador">
-          Información del pagador
+          Informacion del pagador
         </div>
 <br>
           <div class="col-md-4">
@@ -346,33 +361,24 @@
             </div>
             
           </div>
-          <div class="col-12">
-            Forma de pago
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="Efectivo">
-              <label class="form-check-label" for="Efectivo">
-                Efectivo
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="Tarjeta" >
-              <label class="form-check-label" for="Tarjeta">
-                Tarjeta credito/debito
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="Cheque" >
-              <label class="form-check-label" for="Cheque">
-               Cheque
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="Deposito" >
-              <label class="form-check-label" for="Deposito">
-                Depósito
-              </label>
+          
+
+          <!--Select para la forma de pago-->
+          <div class="col-md-5">
+            <label for="forma_pago" class="form-label">Método de pago</label>
+            <select class="form-select" id="forma_pago" required="">
+              <option selected="" disabled="" value="">Escoger...</option>
+              <option>Cheque</option>
+              <option>Tarjeta</option>
+              <option>Transferencia</option>
+              <option>Efectivo</option>
+             
+            </select>
+            <div class="invalid-feedback">
+              Seleccione una opcion
             </div>
           </div>
+          <!-- -->
           
         </form>
       </div>
@@ -381,6 +387,7 @@
        
         <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#validacion-guardar-pago">Guardar</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        
       </div>
     </div>
   </div>
