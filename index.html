@@ -286,7 +286,7 @@
           
           <!-- Aqui esta el select para el titular -->
           <div class="col-md-5">
-            <label for="id_titular" class="form-label">Id del titular</label>
+            <label for="id_titular" class="form-label">Nombre del titular</label>
             <select class="form-select" id="id_titular" required="">
               <option selected="" disabled="" value="">Escoger...</option>
               <option>Nombre</option>
@@ -298,16 +298,7 @@
           </div>
           <!-- -->
 
-          <div class="col-md-10">
-            <label for="nombre_residente_pago" class="form-label">Nombre del residente</label>
-            <input type="text" class="form-control" id="nombre_residente_pago"  required="">
-            <div class="valid-feedback">
-              OK!
-            </div>
-            <div class="invalid-feedback">
-              Por favor ponga el nombre del residente
-             </div>
-          </div>
+          
 <br>
 <div id="infopagador">
           Informacion del pagador
@@ -366,11 +357,16 @@
           <!--Select para la forma de pago-->
           <div class="col-md-5">
             <label for="forma_pago" class="form-label">Método de pago</label>
-            <select class="form-select" id="forma_pago" required="">
+            <SELECT class="form-select" name="forma_pago" onchange="if(this.value=='Tarjeta') {document.getElementById('num_tarjeta').disabled = false , document.getElementById('fecha_exp').disabled = false , document.getElementById('cvv').disabled = false} else 
+                                                                                              {document.getElementById('num_tarjeta').disabled = true , document.getElementById('fecha_exp').disabled = true , document.getElementById('cvv').disabled = true} ;
+                                                         if(this.value=='Cheque')  {document.getElementById('num_cheque').disabled = false } else 
+                                                         {document.getElementById('num_cheque').disabled = true } 
+                                                         if(this.value=='Transferencia')  {document.getElementById('clave_transferencia').disabled = false } else 
+                                                         {document.getElementById('clave_transferencia').disabled = true }">
               <option selected="" disabled="" value="">Escoger...</option>
-              <option>Cheque</option>
-              <option>Tarjeta</option>
-              <option>Transferencia</option>
+              <option value="Cheque">Cheque</option>
+              <option value="Tarjeta">Tarjeta</option>
+              <option value="Transferencia">Transferencia</option>
               <option>Efectivo</option>
              
             </select>
@@ -378,6 +374,30 @@
               Seleccione una opcion
             </div>
           </div>
+          <div class="col-md-9">
+            <label for="num_cheque" class="form-label">Número de Cheque</label>
+            <input class="form-control"  type="text" id="num_cheque" name="num_cheque"  disabled>
+          </div>
+          <div class="col-md-9">
+            <label for="num_tarjeta" class="form-label">Número de tarjeta</label>
+            <input class="form-control"  type="text" id="num_tarjeta" name="num_tarjeta"  disabled>
+          </div>
+            <div class="col-md-6">
+            <label for="fecha_exp" class="form-label">Fecha de expiracion</label>
+            <input class="form-control"  type="text" id="fecha_exp" name="fecha_exp"  disabled>
+          </div>
+          <div class="col-md-4">
+            <label for="cvv" class="form-label">CVV</label>
+            <input class="form-control"  type="text" id="cvv" name="cvv"  disabled>
+          </div>
+
+          <div class="col-md-9">
+            <label for="clave_transferencia" class="form-label">Clave transferencia</label>
+            <input class="form-control"  type="text" id="clave_transferencia" name="clave_transferencia"  disabled>
+          </div>
+         
+
+          
           <!-- -->
           
         </form>
