@@ -1,10 +1,10 @@
 <?php
-    //$conexion = pg_connect("host=localhost dbname=jewy_acces user=postgres password=usuario1234");
+      $host = "localhost";
+      $user = "admin_sgresident";
+      $pass = "usuario1234";
+      $db = "sgresident";
+    
+      $conexion = mysqli_connect($host, $user, $pass, $db);
 
-    if ($conexion) {
-        echo "Se conectó correctamente!\n";
-    }
-    else {
-        echo "Ha ocurrido un problema.\n";
-    }	
+      $cerrar_cn = mysqli_close($conexion);
 ?>
