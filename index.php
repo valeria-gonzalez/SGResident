@@ -11,7 +11,7 @@
     <div class="form-body">
         <div class = "content">
             <div class="title">
-                <h1>Bienvenido de <br> vuelta</h1>
+                <h1>Bienvenido <br> de vuelta</h1>
                 <p>Ingresa tú usuario y contraseña</p>
 
             </div>

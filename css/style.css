@@ -48,6 +48,7 @@ body{
 .navigation{
     position: fixed;  /*lo posiciona en la parte izquierda de la pagina sobre lo demas pq es relativo a la ventana del browser y no
                         de la posicion de otro elemento*/
+    left: 0px;
     width: 230px;
     height: 100%;
     background: var(--clr-primary);
@@ -56,12 +57,18 @@ body{
     overflow: hidden; /*shorthand for x and y overflow, no scroll bar in any direction*/
 }
 
+
 .navigation ul{ /*tda la lista de opciones*/
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
 }
+
+#index.navigation ul{
+    left: -40px;
+}
+
 
 .navigation ul li{
     position: relative;
@@ -71,10 +78,19 @@ body{
     border-bottom-left-radius: 30px;
 }
 
+#index.navigation ul li{
+    position: relative;
+    width: calc(100% + 40px);
+    list-style: none; /*quita las viñetas*/
+    border-top-left-radius: 30px; /*hover is rounded*/
+    border-bottom-left-radius: 30px;
+}
+
 .navigation ul li:hover,
 .navigation ul li.hovered{
     background: var(--clr-lightgray);
 }
+
 
 .navigation ul li:nth-child(1){ /*eliginedo la primera viñeta*/
     margin-top: 10px;
@@ -133,6 +149,7 @@ body{
 }
 
 /*curve outside hover*/
+
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before{
     content: '';
@@ -147,6 +164,7 @@ body{
     pointer-events: none;
 }
 
+
 .navigation ul li:hover a::after,
 .navigation ul li.hovered a::after{
     content: '';
@@ -160,6 +178,7 @@ body{
     box-shadow: 35px -35px 0 10px var(--clr-lightgray);
     pointer-events: none;
 }
+
 
 /*------------------main-------------------------------*/
 
@@ -227,10 +246,6 @@ body{
     padding-left: 80px;
 }
 
-.search .disabled-search ion-icon{
-    left: 60px;
-    color: var(--clr-light-sky);
-}
 
 .search label ion-icon{ /*icono buscar*/
     position: absolute;
@@ -238,6 +253,13 @@ body{
     left: 10px;
     font-size: 1em;
     color: var(--clr-primary);
+}
+
+.search .disabled-search ion-icon{
+    position: fixed;
+    top: calc(4% + 3px);
+    left: calc(46% + 10px);
+    color: var(--clr-light-sky);
 }
 
 .user{ /*div que contiene el icono usuario*/
@@ -275,6 +297,7 @@ body{
     background: var(--clr-white);
     padding: 20px;
     border-radius: 20px;
+    border: none;
     display: flex;
     justify-content: space-between;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.161);
@@ -283,15 +306,16 @@ body{
 .cardBox .card .numbers { /*primera palabra de cada boton*/
     position: relative;
     font-weight: 600;
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: var(--clr-primary);
 }	
 
 .cardBox .card .cardName { /*primera palabra de cada boton*/
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: 500;
     color: var(--clr-black);
-    margin-top: 3px;
+    margin-top: 2px;
+    margin-bottom: 5px;
 }	
 
 .cardBox .card .iconBx { /*segunda palabra de cada boton*/
@@ -313,20 +337,25 @@ body{
 .cardBox .card .iconBx .crd-button ion-icon{
     font-size: 2em;
     color: var(--clr-mustard);
-
+    margin-right: 10px;
 }
 
 
 .cardBox .card:hover{
-    background: var(--clr-primary);
+    background: var(--clr-light-sky);
 }
 
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBx,
-.cardBox .card:hover .iconBx ion-icon{
+.cardBox .card:hover .iconBx{
    color: var(--clr-white);
 }
+
+.cardBox .card:hover .iconBx ion-icon{
+    color: var(--clr-primary);
+    font-size: calc(3em + 10px);
+    transition: 0.3s ease-out;
+ }
 
 /*--------------el dichoso item y los titulos principales--------------*/
 .main-title{
@@ -344,6 +373,13 @@ body{
 .main-title .wow-title{
     color: var(--clr-primary);
     font-size: 1.8em;
+}
+
+#index.wow-title{
+    margin-top: 40px;
+    font-size: 2.2em;
+    color: var(--clr-primary);
+    font-weight: 800;
 }
 
 .item{
