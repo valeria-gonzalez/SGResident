@@ -26,8 +26,11 @@
                         <div class = "cardName">Residente</div>
                     </div>
                     <div class = "iconBx">
-                        <ion-icon name="people-outline"></ion-icon>
+                        <button type = "button" class = "crd-button">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </button>
                     </div>
+
                 </div><!--end card-->
 
                 <div class = "card"> <!--carta de agregar domicilio-->
@@ -36,17 +39,22 @@
                         <div class = "cardName">Domicilio</div>
                     </div>
                     <div class = "iconBx">
-                        <ion-icon name="bed-outline"></ion-icon>
+                        <button type = "button" class = "crd-button">
+                            <ion-icon name="bed-outline"></ion-icon>
+                        </button>
                     </div>
                 </div><!--end card-->
 
                 <div class = "card"> <!--carta de agregar pago-->
+                    
                     <div>
                         <div class = "numbers">Agregar</div>
                         <div class = "cardName">Pago</div>
                     </div>
                     <div class = "iconBx">
-                         <ion-icon name="card-outline"></ion-icon>
+                        <button type = "button" class = "crd-button">
+                            <ion-icon name="card-outline"></ion-icon>
+                        </button>
                     </div>
                 </div><!--end card-->
 
@@ -56,7 +64,9 @@
                         <div class = "cardName">Residente</div>
                     </div>
                     <div class = "iconBx">
-                        <ion-icon name="search"></ion-icon>
+                        <button type = "button" class = "crd-button">
+                            <ion-icon name="search"></ion-icon>
+                        </button>
                     </div>
                 </div><!--end card-->
 
@@ -66,7 +76,9 @@
                         <div class = "cardName">Pago</div>
                     </div>
                     <div class = "iconBx">
-                        <ion-icon name="search"></ion-icon>
+                        <button type = "button" class = "crd-button">
+                            <ion-icon name="search"></ion-icon>
+                        </button>
                     </div>
                 </div><!--end card-->
 

@@ -276,7 +276,6 @@ body{
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
-    cursor: pointer;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.161);
 }
 
@@ -297,9 +296,25 @@ body{
 .cardBox .card .iconBx { /*segunda palabra de cada boton*/
     margin-left: 5px;
     margin-top: 10px;
+}
+
+.cardBox .card .iconBx .crd-button{ /*boton de cada carta*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.cardBox .card .iconBx .crd-button ion-icon{
     font-size: 2em;
     color: var(--clr-mustard);
+
 }
+
 
 .cardBox .card:hover{
     background: var(--clr-primary);
@@ -307,9 +322,9 @@ body{
 
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBx
-{
-    color: var(--clr-white);
+.cardBox .card:hover .iconBx,
+.cardBox .card:hover .iconBx ion-icon{
+   color: var(--clr-white);
 }
 
 /*--------------el dichoso item y los titulos principales--------------*/
