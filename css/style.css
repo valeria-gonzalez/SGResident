@@ -175,6 +175,7 @@ body{
 .main.active{
     width: calc(100% - 73px);
     left: 73px;
+    background: var(--clr-lightgray);
 }
 
 .topbar{ /*div que contiene el hamburger, buscar e icono usuario*/
