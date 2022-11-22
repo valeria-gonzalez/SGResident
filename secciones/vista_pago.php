@@ -18,7 +18,7 @@
                 <h1 class = "wow-title">Pagos</h1>
             </div>
 
-            <div class = "item" id = "tabla-res">
+            <div class = "item" id = "tabla-pago">
                 <p>hola, pon lo q quieras aqui DENTRO DE UN DIV, DIOS ES UN DIV, DIV ES VIDA</p>
                 
             </div> <!--end item-->

@@ -359,3 +359,71 @@ body{
     margin-top: 5px;
 }
 
+/*-------------------para la pagina de ayuda-------------------*/
+
+#ayuda.item{
+    padding: 40px;
+}
+
+#ayuda.item h2{
+    color: var(--clr-mustard);
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#ayuda.item h3{
+    color: var(--clr-gray);
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+
+.accordion{
+    width: 60%;
+    height: 30px;
+    padding: 0 5px;
+    background-color: var(--clr-light-sky);
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    display: flex;
+    margin: 10px 0;
+    margin-top: 20px;
+    align-items: center;
+    
+}
+
+.accordion ion-icon{
+    color: var(--clr-white);
+    height: 25px;
+    width: 25px;
+    transition: all .2 ease-in;
+}
+
+.active {
+    background-color: var(--clr-primary);
+}
+
+.accordion h5{
+    font-size: 19px;
+    margin: 0;
+    margin-left: 10px;
+    padding: 3px 0 0 0;
+    font-weight: 400;
+    color: var(--clr-white);
+}
+
+.panel{
+    padding: 0 15px;
+    width: 80%;
+    border-left: 1px solid var(--clr-light-sky);
+    margin-left: 25px;
+    font-size: 15px;
+    text-align: justify;
+    overflow: hidden;
+    max-height: 0px;
+    transition: all .2s ease-in;
+
+}

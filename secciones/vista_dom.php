@@ -18,7 +18,7 @@
                 <h1 class = "wow-title">Domicilios</h1>
             </div>
 
-            <div class = "item" id = "tabla-res">
+            <div class = "item" id = "tabla-dom">
                 <p>hola, pon lo q quieras aqui DENTRO DE UN DIV, DIOS ES UN DIV, DIV ES VIDA</p>
                 
             </div> <!--end item-->
