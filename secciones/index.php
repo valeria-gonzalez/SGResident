@@ -33,7 +33,7 @@
         <div class="main">
             <!--aqui buscar-->
             <?php $IPATH = $_SERVER["DOCUMENT_ROOT"] . "/sgclaro/cabeceras/";
-            include($IPATH . "nav-sin-buscar.html"); ?>
+            include($IPATH . "nav-sin-buscar index.html"); ?>
             <!--codigo php usado para incluir el header sin necesidad del codigo-->
 
             <!--main content, aqui decides si poner las cards o el item-->
@@ -71,7 +71,7 @@
                     </div>
                     <div class="iconBx">
                         
-                            <button type="button" class="crd-button" data-bs-toggle="modal" data-bs-target="#">
+                            <button type="button" class="crd-button" data-bs-toggle="modal" data-bs-target="#agregar-domicilio">
                                 <ion-icon name="bed-outline"></ion-icon>
                             </button>
                     </div>
@@ -156,7 +156,7 @@
                 </div> <!--end modal-header-->
 
                 <div class="modal-body">
-                    <form  action = "../configuraciones/operaciones_residente/agregar_res.php" method = "POST" class="row g-3 needs-validation was-validated">
+                    <form action = "../configuraciones/operaciones_residente/agregar_res.php" method = "POST" class="row g-3 needs-validation was-validated">
                         <div class="col-md-4">
                             <label for="nombre_residente" class="form-label">Nombre(s)</label>
                             <input type="text" name = "txtNombre" class="form-control" id="nombreresidente" autocomplete = "off" required>
@@ -336,12 +336,27 @@
                 </div>
                 
                 <div class="modal-header" id = "indicacion">
-                    <label>Llena los campos del formulario para agregar un pago</label>
+                    <label>Llena los campos del formulario para agregar un pago o adeudo</label>
                 </div> <!--end modal-header-->
 
                 <div class="modal-body">
-                    <form class="row g-3 needs-validation was-validated">
+                    <form action = "../configuraciones/operaciones_pago/agregar_pago.php" method = "POST" class="row g-3 needs-validation was-validated">
                         <!-- Aqui esta el select para el titular -->
+                        <div class="col-md-9">
+                            <label for="adeudo" class="form-label">¿Está ingresando un adeudo?</label>
+                            <SELECT required class="form-select" name="esAdeudo" onchange="if(this.value=='No') {document.getElementById('nombre_pagador').disabled = false , document.getElementById('apellido_1_pagador').disabled = false , document.getElementById('apellido_2_pagador').disabled = false, 
+                                                                                                                document.getElementById('forma_pago').disabled = false} else 
+                                                                                                                {document.getElementById('nombre_pagador').disabled = true , document.getElementById('apellido_1_pagador').disabled = true , document.getElementById('apellido_2_pagador').disabled = true, 
+                                                                                                                document.getElementById('forma_pago').disabled = true} ;">
+                                <option selected="" disabled="" value="">Responder (Sí/No)...</option>
+                                <option value="Si">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Seleccione una opcion
+                            </div>
+                        </div>
+
                         <div class="col-md-5">
                             <label for="id_titular" class="form-label">Nombre del titular</label>
                             <select class="form-select" name = "selTitular" id="id_titular" required="">
@@ -363,7 +378,6 @@
                         <div class="col-md-6">
                             <label for="domiciliopago" class="form-label">Domicilio </label>
                             <div class="input-group has-validation">
-
                                 <select name = "selDomPago" class="form-select" id="domiciliopago" required="">
                                     <option selected="" disabled="" value="">Escoger domicilio...</option>
                                     <?php 
@@ -387,7 +401,7 @@
                         
                         <div class="col-md-4">
                             <label for="nombre_pagador" class="form-label">Nombre(s)</label>
-                            <input type="text" class="form-control" id="nombre_pagador" required name = "txtResponsable" autocomplete = "off">
+                            <input type="text" class="form-control" id="nombre_pagador" required name = "txtResponsable" autocomplete = "off" disabled>
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -397,7 +411,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="apellido_1_pagador" class="form-label">Apellido 1</label>
-                            <input type="text" class="form-control" id="apellido_1_pagador" required="" name = "txtApell1Res" autocomplete = "off">
+                            <input type="text" class="form-control" id="apellido_1_pagador" required="" name = "txtApell1Res" autocomplete = "off" disabled>
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -408,7 +422,7 @@
 
                         <div class="col-md-4">
                             <label for="apellido_2_pagador" class="form-label">Apellido 2</label>
-                            <input type="text" class="form-control" id="apellido_2_pagador" required="" name = "txtApell2Res" autocomplete = "off">
+                            <input type="text" class="form-control" id="apellido_2_pagador" required="" name = "txtApell2Res" autocomplete = "off" disabled>
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -421,7 +435,7 @@
                             <label>Ingrese la información referente al pago</label>
                         </div> <!--end modal-header-->
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="concepto" class="form-label">Concepto</label>
                             <select class="form-select" id="id_titular" required="" name = "selMes">
                                 <option selected="" disabled="" value="">Elija un mes...</option>
@@ -441,12 +455,21 @@
                         </div>
 
                         <div class="col-md-4">
-                            <label for="monto" class="form-label">Monto de pago</label>
+                            <label for="monto" class="form-label">Monto a pagar</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend3">$</span>
-                                <input name = "txtMonto" autocomplete = "off"type="number" value="320" class="form-control is-invalid" id="monto" aria-describedby="inputGroupPrepend3 montoFeedback" required="">
+                                <input name = "txtMonto" autocomplete = "off"type="number" step = "0.01" value="320" class="form-control is-invalid" id="monto" aria-describedby="inputGroupPrepend3 montoFeedback" required="">
                             </div>
                         </div>
+
+                        <div class="col-md-4">
+                            <label for="recibido" class="form-label">Monto recibido</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend3">$</span>
+                                <input name = "txtRecibido" autocomplete = "off"type="number" step = "0.01" value="320" class="form-control is-invalid" id="recibido" aria-describedby="inputGroupPrepend3 montoFeedback" required="">
+                            </div>
+                        </div>
+                        
 
                         <div class="modal-header" id = "indicacion2">
                             <label>Elija un método de pago</label>
@@ -455,7 +478,7 @@
                         <!--Select para la forma de pago-->
                         <div class="col-md-5">
                             <label for="forma_pago" class="form-label">Método de pago</label>
-                            <SELECT class="form-select" name="formaPago" onchange="if(this.value=='Tarjeta') {document.getElementById('num_tarjeta').disabled = false , document.getElementById('fecha_exp').disabled = false , document.getElementById('cvv').disabled = false} else 
+                            <SELECT id= "forma_pago" disabled class="form-select" name="formaPago" onchange="if(this.value=='Tarjeta') {document.getElementById('num_tarjeta').disabled = false , document.getElementById('fecha_exp').disabled = false , document.getElementById('cvv').disabled = false} else 
                                                                                               {document.getElementById('num_tarjeta').disabled = true , document.getElementById('fecha_exp').disabled = true , document.getElementById('cvv').disabled = true} ;
                                                          if(this.value=='Cheque')  {document.getElementById('num_cheque').disabled = false } else 
                                                          {document.getElementById('num_cheque').disabled = true } 
@@ -483,7 +506,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="fecha_exp" class="form-label">Fecha de expiracion</label>
+                            <label for="fecha_exp" class="form-label">Fecha de expiracion (MM/AA)</label>
                             <input class="form-control" type="text" id="fecha_exp" name="txtFechaExp" disabled autocomplete = "off">
                         </div>
 
@@ -511,7 +534,84 @@
                 </div>
             </div>
         </div>
-    </div>                                     
+    </div>   
+    
+    <!---------------------------------------------------Modal para agregar domicilio-------------------------------------------->
+    <div class="modal fade" id="agregar-domicilio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" id="agregarresidente">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class = "h1-modal">
+                        <label>Agregar domicilio</label>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> <!--end modal-header-->
+
+                <div class="modal-header" id = "indicacion">
+                    <label>Llena los campos del formulario para agregar un domicilio sin residente </label>
+                </div> <!--end modal-header-->
+
+                <div class="modal-body">
+                    <form action = "../configuraciones/operaciones_dom/agregar_dom.php" method = "POST" class="row g-3 needs-validation was-validated">
+                        <div class="col-md-6">
+                            <label for="domicilio" class="form-label">Calle</label>
+                            <input type="text" class="form-control" id="domicilio" required="" name = "domCalle" autocomplete = "off">
+                            <div class="invalid-feedback">
+                                Por favor escriba la calle.
+                            </div>
+                        </div> <!--end col-md-6-->
+
+                        <div class="col-md-6">
+                            <label for="numero_casa" class="form-label">Número de casa</label>
+                            <input type="text" class="form-control" id="numerocasa" required="" name = "domNoCasa" autocomplete = "off">
+                            <div class="invalid-feedback">
+                                Por favor escriba el número de casa.
+                            </div>
+                        </div> <!--end col-md-6-->
+
+                        <div class="col-md-6">
+                            <label for="entrevialidad_1" class="form-label">Entre vialidad 1</label>
+                            <input type="text" class="form-control" id="entrevialidad1" required="" name = "domVial1" autocomplete = "off">
+                            <div class="invalid-feedback">
+                                Por favor escriba la entre vialidad 1.
+                            </div>
+                        </div> <!--end col-md-6-->
+
+                        <div class="col-md-6">
+                            <label for="entrevialidad_2" class="form-label">Entre vialidad 2</label>
+                            <input type="text" class="form-control" id="entrevialidad2" required="" name = "domVial2" autocomplete = "off">
+                            <div class="invalid-feedback">
+                                Por favor escriba la entre vialidad 2.
+                            </div>
+                        </div>  <!--end col-md-6-->
+
+                        <div class="col-12">
+                            <label for="referencias" class="form-label">Referencias</label>
+                            <input type="text" class="form-control" id="referencias" required="" name = "domReferencias" autocomplete = "off">
+                            <div class="invalid-feedback">
+                                Por favor escriba algunas referencias.
+                            </div>
+                        </div> <!--end col-md-6-->
+
+                    
+                        <!-- Fin del formulario -->
+                        <div class="modal-footer">
+
+                            <!-- En este botón lleva a una modal para confirmar que se quieren guardar los datos -->
+                            <button name = "btn-dom-agr" class="btn btn-primary" type="submit">Guardar</button>
+                            <!-- -->
+
+                            <!-- En este botón cierra el modal -->
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <!-- -->
+                        </div>
+                    </form>
+                </div> <!--end modal-body-->
+            </div> <!--end modal-content-->
+        </div> <!--end modal-dialog-->
+    </div> <!--end modal fade-->
+
+
 </body>
 
 </html>

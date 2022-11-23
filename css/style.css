@@ -256,9 +256,16 @@ body{
 }
 
 .search .disabled-search ion-icon{
-    position: fixed;
+    position: absolute;
     top: calc(4% + 3px);
-    left: calc(46% + 10px);
+    left: calc(15%);
+    color: var(--clr-light-sky);
+}
+
+.search .disabled-search-index ion-icon{
+    position: absolute;
+    top: calc(25%);
+    left: calc(15%);
     color: var(--clr-light-sky);
 }
 
@@ -457,7 +464,7 @@ body{
     width: 80%;
     border-left: 1px solid var(--clr-light-sky);
     margin-left: 25px;
-    font-size: 15px;
+    font-size: 17px;
     text-align: justify;
     overflow: hidden;
     max-height: 0px;

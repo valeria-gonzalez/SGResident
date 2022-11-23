@@ -1,4 +1,9 @@
 <?php
+    function esAdeudo(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+            return $_POST['esAdeudo'];
+    }
+
     function getTitular(){
         if($_SERVER['REQUEST_METHOD'] == 'POST') //esta linea resulta necesaria pq se debe diferenciar si se manda por post o get
             return $_POST['selTitular']; //guardamos el valor del campo referenciandolo por su nombre
@@ -34,46 +39,39 @@
             return $_POST['txtMonto'];
     }
 
-    function getTelefono(){
+    function getRecibido(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['txtTelefono'];
+            return $_POST['txtRecibido'];
     }
 
-    function getCelular(){
+    function getFormaPago(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['txtCelular'];
+            return $_POST['formaPago'];
     }
 
-    
-
-    function getNoCasa(){
+    function getNoCheque(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['txtNoCasa'];
+            return $_POST['txtNoCheque'];
     }
 
-    function getVialidad1(){
+    function getNoTarjeta(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['txtVialidad1'];
+            return $_POST['txtNoTarjeta'];
     }
 
-    function getVialidad2(){
+    function getFechaExp(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['txtVialidad2'];
+            return $_POST['txtFechaExp'];
     }
 
-    function getReferencias(){
+    function getCVV(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['txtReferencias'];
+            return $_POST['txtCVV'];
     }
 
-    function getDomExistente(){
+    function getClaveTrans(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['selDom'];
-    }
-
-    function existeDom(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['existe-dom'];
+            return $_POST['txtClaveTrans'];
     }
 
 ?>
