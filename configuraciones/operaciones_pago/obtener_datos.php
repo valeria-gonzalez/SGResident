@@ -1,27 +1,37 @@
 <?php
-    function getNombres(){
+    function getTitular(){
         if($_SERVER['REQUEST_METHOD'] == 'POST') //esta linea resulta necesaria pq se debe diferenciar si se manda por post o get
-            return $_POST['txtNombre']; //guardamos el valor del campo referenciandolo por su nombre
+            return $_POST['selTitular']; //guardamos el valor del campo referenciandolo por su nombre
+    }
+
+    function getDomicilio(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+            return $_POST['Domicilio'];
+    }
+
+    function getNombre(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+            return $_POST['txtResponsable'];
     }
 
     function getApellido1(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['txtApellido1'];
+            return $_POST['txtApell1Res'];
     }
 
     function getApellido2(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['txtApellido2'];
+            return $_POST['txtApell2Res'];
     }
 
-    function getEdad(){
+    function getMes(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['txtEdad'];
+            return $_POST['selMes'];
     }
 
-    function getSexo(){
+    function getMonto(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['selSexo'];
+            return $_POST['txtMonto'];
     }
 
     function getTelefono(){
@@ -34,10 +44,7 @@
             return $_POST['txtCelular'];
     }
 
-    function getDomicilio(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['txtDomicilio'];
-    }
+    
 
     function getNoCasa(){
         if($_SERVER['REQUEST_METHOD'] == 'POST')

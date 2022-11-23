@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root { /*The :root selector matches the document's root element which is always the HTML element.*/
+    --clr-indigo: #4a67b4;
+    --clr-primary: #4d5bf9;
+    --clr-blue: #004CC1;
+    --clr-light-sky: #92a6e2;
+    --clr-purple: #695cfe;
+
+    --clr-mustard: #e2a415;
+    
+    --clr-black: #1c1c1c;
+    --clr-black-80: #2f2f2f;
+    --clr-black-60: #282828;
+    
+    --clr-bone : #e9e9e9;
+    --clr-lightgray : #f5f5f5;
+    --clr-gray: #969696;
+
+    --clr-white: #ffffff;
+    --clr-white-80: #f7f3f3;
+    --clr-white-60: #dbdada;
+  }
+
+*{ /* * is a universal selector that selects all elements on the page. */
+    font-family: "Poppins", sans-serif; /* the default font will be poppins, but if it's not supported in a browser, it'll default to sans-serif  */
+}
+
+.fade{
+    padding-right: 200px;
+}
+
+.modal-content{
+    width: 800px;
+    margin-right: 500px; 
+}
+
+.modal-header{
+    height: 100%;
+    border: none;
+    background: var(--clr-white);
+    padding-bottom: 0px;
+    margin-top: 10px;
+}
+
+.modal-header .h1-modal{
+    background: var(--clr-white);
+    width: 80%;
+    height: 100%;
+    color: var(--clr-primary);
+}
+
+.modal-header .h1-modal label{
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.modal-header .btn-close{
+    margin-right: 3px;
+    margin-bottom: 30px;
+}
+
+#indicacion.modal-header{
+    background-color: transparent;
+    margin-top: -20px;
+    padding-left: 20px;
+    margin-bottom: 5px;
+    color: var(--clr-gray);
+    border-bottom: none;
+    font-size: 20px;
+    height: 100%;
+}
+
+#indicacion2.modal-header{
+    background-color: transparent;
+    margin-top: 20px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    color: var(--clr-primary);
+    font-size: 20px;
+    font-weight: 600;
+    height: 100%;
+}
+
+.modal-footer .btn-primary{
+    background-color: var(--clr-primary);
+    border-color: var(--clr-primary);
+    
+}
+
