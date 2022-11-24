@@ -5,8 +5,9 @@
     <!--search-->
     <div class = "search">
         <label>
-            <input type = "text" placeholder = "Buscar">
-            <ion-icon name="search"></ion-icon>
+            <input autocomplete="off" name="search" placeholder="Ingrese el domicilio a buscar" required>
+            <ion-icon name="search"></ion-icon> 
+            <input class="boton-busq" type="submit" name="enviar" value="Buscar" onclick="location.href='../configuraciones/operaciones_pago/busq_pago.php'">           
         </label>
     </div> <!--end search-->
     <!--user img-->
