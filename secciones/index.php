@@ -205,9 +205,9 @@
                             <label for="sexo" class="form-label">Sexo</label>
                             <select name = "selSexo" class="form-select" id="sexo" required>
                                 <option selected="" disabled="" value="">Escoger sexo...</option>
-                                <option>M</option>
-                                <option>H</option>
-                                <option>O</option>
+                                <option value ="M">Mujer</option>
+                                <option value ="H">Hombre</option>
+                                <option value ="O">Otro</option>
                             </select>
                             <div class="invalid-feedback">
                                 Seleccione una opcion
