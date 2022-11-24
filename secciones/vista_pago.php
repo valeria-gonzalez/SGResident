@@ -10,9 +10,9 @@
                         pago c1 
                     INNER JOIN titular c2 USING (ID_TITULAR)
                     INNER JOIN domicilio c3 USING (ID_TITULAR)
-                    WHERE c1.ADEUDO = '0'
+                    WHERE c1.ADEUDO = '0' AND c1.INACTIVO = '0'
                     GROUP BY
-                    c1.ID_PAGO ;";
+                    c1.ID_PAGO;";
 
     $cons_pago= mysqli_query($conexion,$query_pago);
 

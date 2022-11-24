@@ -4,16 +4,18 @@
     </div> <!--end toggle-->
     <!--search-->
     <div class = "search" id = "pago">
-        <label>
-            <div class = "calle">
-                <input autocomplete="off" name="search" placeholder="Ingrese la calle a buscar" required>
-                <ion-icon class = "icn-pago" name="search"></ion-icon>
-            </div>
-            <div class = "numero">
-                <input class = "label-pago" autocomplete="off" name="search" placeholder="No. Casa" required> 
-            </div>
-            <input class="boton-busq" id = "pago" type="submit" name="enviar" value="Buscar" onclick="location.href='../configuraciones/operaciones_pago/busq_pago.php'">           
-        </label>
+        <form action="../configuraciones/operaciones_pago/busq_pago.php" method ="post">
+            <label>
+                <div class = "calle">
+                    <input autocomplete="off" name="buscar_calle" placeholder="Ingrese la calle a buscar" required>
+                    <ion-icon class = "icn-pago" name="search"></ion-icon>
+                </div>
+                <div class = "numero">
+                    <input class = "label-pago" autocomplete="off" name="buscar_no" placeholder="No. Casa" required> 
+                </div>
+                <input class="boton-busq" id = "pago" type="submit" name="enviar" value="Buscar" onclick="location.href='../configuraciones/operaciones_pago/busq_pago.php'">           
+            </label>
+        </form>
     </div> <!--end search-->
     <!--user img-->
     <div class = "user">
