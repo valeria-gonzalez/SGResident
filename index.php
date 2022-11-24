@@ -11,7 +11,7 @@
     <div class="form-body">
         <div class = "content">
             <div class="title">
-                <h1>Bienvenido <br> de vuelta</h1>
+                <h1>Bienvenido de <br> vuelta</h1>
                 <p>Ingresa tú usuario y contraseña</p>
 
             </div>
@@ -22,22 +22,22 @@
                     <button>Iniciar sesión</button>
 
                     <?php
-                        if(!empty($_POST['text']) && !empty($_POST['password'])){
-                            $text = $_POST['text'];
-                            $password = $_POST['password'];
-                            if($text == 'usuario' && $password == "sgresident"){
-                                header("location: secciones/index.php");
-
-                            }else{
-                                echo "<script>
-                                        alert('Usuario o contraseña incorrectos');
-                                    </script>";
+                     if(!empty($_POST['text']) && !empty($_POST['password'])){
+	                     $text = $_POST['text'];
+	                     $password = $_POST['password'];
+                         $usuario = 'Usuario';
+                         $contraseña = 'Sg2022';
+	                     if($text == $usuario && $password == $contraseña){
+		                    header("location: secciones/index.php");
+	                      }
+                                
+                        else{
+                               echo"<div class='alert alert - danger'>Usuario o contraseña incorrectos</div>";
                             }
                         }
 
                     ?>
                 </form>
-                <button class = "simple">Olvidaste tus credenciales?</button>
             </div>
             
         </div>
