@@ -1,3 +1,39 @@
+<?php
+    include_once '../configuraciones/conexion_bd.php';
+    //$query_consulta = "SELECT * FROM titular WHERE NOT inactivo = 1";
+    $query_pago = "SELECT 
+                        c1.ID_PAGO, c1.FCHA_PAGO, c1.MES, c1.MONTO, c1.RECIBIDO, 
+                        CONCAT(c1.NOM_PAGADOR, ' ', c1.PAG_APELL_1, ' ', c1.PAG_APELL_2) AS RESPONSABLE,
+                        CONCAT(c2.NOMBRE, ' ', c2.PR_APELL, ' ', c2.SEG_APELL) AS TITULAR,
+                        CONCAT(c3.CALLE, ' ', c3.NO_CASA) AS DOMICILIO
+                    FROM
+                        pago c1 
+                    INNER JOIN titular c2 USING (ID_TITULAR)
+                    INNER JOIN domicilio c3 USING (ID_TITULAR)
+                    WHERE c1.ADEUDO = '0'
+                    GROUP BY
+                    c1.ID_PAGO ;";
+
+    $cons_pago= mysqli_query($conexion,$query_pago);
+
+    $query_adeudo = "SELECT 
+                        c1.ID_PAGO, c1.FCHA_PAGO, c1.MES, c1.MONTO, 
+                        CONCAT(c2.NOMBRE, ' ', c2.PR_APELL, ' ', c2.SEG_APELL) AS TITULAR,
+                        CONCAT(c3.CALLE, ' ', c3.NO_CASA) AS DOMICILIO
+                    FROM
+                        pago c1 
+                    INNER JOIN titular c2 USING (ID_TITULAR)
+                    INNER JOIN domicilio c3 USING (ID_TITULAR)
+                    WHERE c1.ADEUDO = '1'
+                    GROUP BY
+                    c1.ID_PAGO ;";
+
+    $cons_ade= mysqli_query($conexion,$query_adeudo);
+
+    $cerrar_conexion = mysqli_close($conexion);
+    //$consulta= $conexion -> query($query_consulta)
+?>
+
 <!doctype HTML>
 <html>
 <head>
@@ -31,57 +67,27 @@
                                 <th>Monto</th>
                                 <th>Cantidad recibida</th>
                                 <th>Responsable</th>
+                                <th>Titular</th>
+                                <th>Domicilio</th>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <th class = "id-azul">1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                                <td>320</td>
-                                <td>Samir</td>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                                <td>320</td>
-                                <td>Samir</td>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                                <td>320</td>
-                                <td>Samir</td>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                                <td>320</td>
-                                <td>Samir</td>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                                <td>320</td>
-                                <td>Samir</td>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                                <td>320</td>
-                                <td>Samir</td>
-                            </tr>
+                            <?php
+                                if($cons_pago){
+                                    if(mysqli_num_rows($cons_pago) > 0){
+                                        while($obj=mysqli_fetch_object($cons_pago)){?>
+                                <tr>
+                                    <th class="id-azul"><?php echo $obj->ID_PAGO?></th>
+                                    <td><?php echo $obj->FCHA_PAGO?></td>
+                                    <td><?php echo $obj->MES?></td>
+                                    <td><?php echo $obj->MONTO?></td>
+                                    <td><?php echo $obj->RECIBIDO?></td>
+                                    <td><?php echo $obj->RESPONSABLE?></td>
+                                    <td><?php echo $obj->TITULAR?></td>
+                                    <td><?php echo $obj->DOMICILIO?></td>
+                                    <td><a id ="pagos" href="../configuraciones/operaciones_pago/busq_pago.php"><i class="fa-solid fa-money-bill-transfer"></i></a></td>
+                                </tr>
+                            <?php } } }?>
                         </tbody>
 
                     </table>
@@ -100,57 +106,25 @@
                                 <th>Fecha de registro</th>
                                 <th>Concepto</th>
                                 <th>Monto</th>
+                                <th>Titular</th>
+                                <th>Domicilio</th>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <th class = "id-azul">1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                            </tr>
-
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                            </tr>
-
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                            </tr>
-
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                            </tr>
-
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                            </tr>
-
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                            </tr>
-
-                            <tr>
-                                <th>1</th>
-                                <td>19/11/2022</td>
-                                <td>Noviembre</td>
-                                <td>320</td>
-                            </tr>
+                            <?php
+                                if($cons_ade){
+                                    if(mysqli_num_rows($cons_ade) > 0){
+                                        while($obj=mysqli_fetch_object($cons_ade)){?>
+                                <tr>
+                                    <th class="id-azul"><?php echo $obj->ID_PAGO?></th>
+                                    <td><?php echo $obj->FCHA_PAGO?></td>
+                                    <td><?php echo $obj->MES?></td>
+                                    <td><?php echo $obj->MONTO?></td>
+                                    <td><?php echo $obj->TITULAR?></td>
+                                    <td><?php echo $obj->DOMICILIO?></td>
+                                    <td><a id ="pagos" href="../configuraciones/operaciones_pago/busq_pago.php"><i class="fa-solid fa-money-bill-transfer"></i></a></td>
+                                </tr>
+                            <?php } } }?>
                         </tbody>
                         
                     </table>

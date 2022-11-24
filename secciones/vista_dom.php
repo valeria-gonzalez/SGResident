@@ -1,3 +1,20 @@
+<?php
+    include_once '../configuraciones/conexion_bd.php';
+    //$query_consulta = "SELECT * FROM titular WHERE NOT inactivo = 1";
+    $query_consulta = "SELECT 
+                            c1.CALLE, c1.NO_CASA, c1.VIALIDAD_1, c1.VIALIDAD_2, c1.REFERENCIAS, 
+                            CONCAT(c2.NOMBRE, ' ', c2.PR_APELL, ' ', c2.SEG_APELL) AS TITULAR
+                        FROM
+                            domicilio c1
+                        INNER JOIN titular c2 USING (ID_TITULAR)
+                        GROUP BY
+                            c1.CALLE, c1.NO_CASA;";
+
+    $consulta= mysqli_query($conexion,$query_consulta);
+    $cerrar_conexion = mysqli_close($conexion);
+    //$consulta= $conexion -> query($query_consulta)
+?>
+
 <!doctype HTML>
 <html>
 <head>
@@ -36,33 +53,20 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <th>1</th>
-                                <td>San Mariano</td>
-                                <td>1350</td>
-                                <td>San algo</td>
-                                <td>San otro</td>
-                                <td>Samir</td>
-                                <td><a id ="pagos" href="../configuraciones/operaciones_pago/busq_pago.php"><i class="fa-solid fa-money-bill-transfer"></i></a></td>
-                            </tr>
-
-                            <tr>
-                                <th>2</th>
-                                <td>San Mariano</td>
-                                <td>1350</td>
-                                <td>San algo</td>
-                                <td>San otro</td>
-                                <td>Samir</td>
-                            </tr>
-
-                            <tr>
-                                <th>3</th>
-                                <td>San Mariano</td>
-                                <td>1350</td>
-                                <td>San algo</td>
-                                <td>San otro</td>
-                                <td>Samir</td>
-                            </tr>
+                            <?php
+                                if($consulta){
+                                    if(mysqli_num_rows($consulta) > 0){
+                                        while($obj=mysqli_fetch_object($consulta)){?>
+                                <tr>
+                                    <td><?php echo $obj->CALLE?></td>
+                                    <td><?php echo $obj->NO_CASA?></td>
+                                    <td><?php echo $obj->VIALIDAD_1?></td>
+                                    <td><?php echo $obj->VIALIDAD_2?></td>
+                                    <td><?php echo $obj->REFERENCIAS?></td>
+                                    <td><?php echo $obj->TITULAR?></td>
+                                    <td><a id ="pagos" href="../configuraciones/operaciones_pago/busq_pago.php"><i class="fa-solid fa-money-bill-transfer"></i></a></td>
+                                </tr>
+                            <?php } } }?>
                         </tbody>
 
                     </table>    
