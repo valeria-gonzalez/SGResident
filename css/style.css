@@ -269,6 +269,19 @@ body{
     color: var(--clr-light-sky);
 }
 
+.search input.boton-busq {
+    width: 100px;
+    position: absolute;
+    padding: 0;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 4px;
+    border-width: 0;
+    background-color: #4d5bf9;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
 .user{ /*div que contiene el icono usuario*/
     position: relative;
     right: 20px;

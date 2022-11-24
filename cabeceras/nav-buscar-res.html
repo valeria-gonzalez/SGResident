@@ -1,0 +1,20 @@
+<div class = "topbar">
+    <div class = "toggle">
+        <ion-icon name="menu"></ion-icon>
+    </div> <!--end toggle-->
+    <!--search-->
+    <div class = "search">
+        <form action="../configuraciones/operaciones_residente/busq_res.php" method="post">
+            <label>
+                <input name="buscar" autocomplete="off" class="box" type="text" onfocus = "(this.type = 'number')" onblur = "if(!this.value) this.type = 'text'"
+                                            ondrop="return false"; onpaste="return false"; onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Ingrese el ID a buscar" required>
+                <ion-icon name="search"></ion-icon> 
+                <input class="boton-busq" type="submit" name="enviar" value="Buscar">             
+            </label>
+        </form>
+    </div> <!--end search-->
+    <!--user img-->
+    <div class = "user">
+        <img src = "../src/user.png">
+    </div> <!--end user-->
+</div> <!--end topbar-->
