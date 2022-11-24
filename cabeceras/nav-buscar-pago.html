@@ -3,11 +3,16 @@
         <ion-icon name="menu"></ion-icon>
     </div> <!--end toggle-->
     <!--search-->
-    <div class = "search">
+    <div class = "search" id = "pago">
         <label>
-            <input autocomplete="off" name="search" placeholder="Ingrese el domicilio a buscar" required>
-            <ion-icon name="search"></ion-icon> 
-            <input class="boton-busq" type="submit" name="enviar" value="Buscar" onclick="location.href='../configuraciones/operaciones_pago/busq_pago.php'">           
+            <div class = "calle">
+                <input autocomplete="off" name="search" placeholder="Ingrese la calle a buscar" required>
+                <ion-icon class = "icn-pago" name="search"></ion-icon>
+            </div>
+            <div class = "numero">
+                <input class = "label-pago" autocomplete="off" name="search" placeholder="No. Casa" required> 
+            </div>
+            <input class="boton-busq" id = "pago" type="submit" name="enviar" value="Buscar" onclick="location.href='../configuraciones/operaciones_pago/busq_pago.php'">           
         </label>
     </div> <!--end search-->
     <!--user img-->
