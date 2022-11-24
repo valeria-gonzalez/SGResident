@@ -1,0 +1,486 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root { /*The :root selector matches the document's root element which is always the HTML element.*/
+    --clr-indigo: #4a67b4;
+    --clr-primary: #4d5bf9;
+    --clr-blue: #004CC1;
+    --clr-light-sky: #92a6e2;
+    --clr-purple: #695cfe;
+
+    --clr-mustard: #e2a415;
+    
+    --clr-black: #1c1c1c;
+    --clr-black-80: #2f2f2f;
+    --clr-black-60: #282828;
+    
+    --clr-bone : #e9e9e9;
+    --clr-lightgray : #f5f5f5;
+    --clr-gray: #969696;
+
+    --clr-white: #ffffff;
+    --clr-white-80: #f7f3f3;
+    --clr-white-60: #dbdada;
+  }
+
+*{ /* * is a universal selector that selects all elements on the page. */
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif; /* the default font will be poppins, but if it's not supported in a browser, it'll default to sans-serif  */
+}
+
+body{
+    min-height: 100vh; /* min-height: 100vh; means that the minimum height of the body will be 100% of the viewport height. */
+    overflow-x: hidden; /* overflow-x: hidden; means that the body will not have a horizontal scrollbar. */
+    background: var(--clr-lightgray);
+}
+
+.container{ /*lo que contiene donde esta todo el navegador*/
+    position: relative; /*The element is positioned according to the normal flow of the document, 
+                        and then offset relative to itself based on the values of top, right, bottom, and left.
+                        la posicion de cada elemento sera relativo a la posicion que deberia ocupar en el documento*/
+    width: 100%;
+}
+
+
+/*-------------------navegador lateral-------------------*/
+
+.navigation{
+    position: fixed;  /*lo posiciona en la parte izquierda de la pagina sobre lo demas pq es relativo a la ventana del browser y no
+                        de la posicion de otro elemento*/
+    left: 0px;
+    width: 230px;
+    height: 100%;
+    background: var(--clr-primary);
+    border-left: 10px solid var(--clr-primary); /*para q las opciones no esten pegadas al borde*/
+    transition: 0.5s;
+    overflow: hidden; /*shorthand for x and y overflow, no scroll bar in any direction*/
+}
+
+
+.navigation ul{ /*tda la lista de opciones*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#index.navigation ul{
+    left: -40px;
+}
+
+
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none; /*quita las viñetas*/
+    border-top-left-radius: 30px; /*hover is rounded*/
+    border-bottom-left-radius: 30px;
+}
+
+#index.navigation ul li{
+    position: relative;
+    width: calc(100% + 40px);
+    list-style: none; /*quita las viñetas*/
+    border-top-left-radius: 30px; /*hover is rounded*/
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered{
+    background: var(--clr-lightgray);
+}
+
+
+.navigation ul li:nth-child(1){ /*eliginedo la primera viñeta*/
+    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-left: -55px;
+    pointer-events: none; /*no se puede hacer click en el logo*/
+}
+
+.navigation ul li:nth-child(1) a .title{ 
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1.4rem;
+}
+
+.navigation ul li a{ /*contiene el icono y el nombre*/
+    position: relative;
+    display: block; /*para que el icono y el nombre esten en la misma linea*/
+    width: 100%;
+    display: flex;
+    text-decoration: none; /*quita el subrayado*/
+    color: var(--clr-white)
+}
+
+/*para cuando se hace mas pequeño*/
+.navigation.active{
+    width: 73px;
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a{ /*cuando se pone el cursor encima de la opcion*/
+    color: var(--clr-primary);
+}
+
+.navigation ul li a .icon{ /*estilo de las opciones*/
+    position: relative;
+    display: block; 
+    min-width: 60px;
+    height: 60px; 
+    line-height: 70px; /*hace que el icono y titulo esten ala misma altura*/
+    text-align: center; /*junta icono con texto*/
+}
+
+.navigation ul li a .icon ion-icon{ /*estilo del icono*/
+    font-size: 1.2rem;
+}
+
+.navigation ul li a .title{ /*el texto al lado del icono*/
+    font-size: 20px;
+    position: relative;
+    display: block;
+    padding: 0 10px; /*mueve los titulos 10 px a la derecha*/
+    height: 60px; /*para que el titulo y el icono esten a la misma altura*/
+    line-height: 60px; /*line-height: 60px; means that the height of the line will be 60px. */
+    text-align: start; /*para que el texto este alineado a la izquierda*/
+    white-space: nowrap; /*para que el texto no se salga de la caja*/
+}
+
+/*curve outside hover*/
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--clr-lightgray);
+    pointer-events: none;
+}
+
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--clr-lightgray);
+    pointer-events: none;
+}
+
+
+/*------------------main-------------------------------*/
+
+.main{
+    position:absolute;
+    width: calc(100% - 230px);
+    left: 230px;
+    min-height: 100vh;
+    background: var(--clr-lightgray);
+    transition: 0.5s;
+}
+
+.main.active{
+    width: calc(100% - 73px);
+    left: 73px;
+    background: var(--clr-lightgray);
+}
+
+.topbar{ /*div que contiene el hamburger, buscar e icono usuario*/
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle{ /*es el div que contiene el hamburger menu*/
+    position: relative;
+    width: 60px;
+    height: 60px;
+    color: var(--clr-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.search{ /*clase q contiene el label, navegador y el icono buscar*/
+    position: relative;
+    right: 25px;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label{ /*label que contiene barra  navegadora y buscar*/
+    position: relative;
+    width: 100%;
+}
+
+.search label input{ /*la barra navegadora*/
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--clr-white);
+}
+
+.search label input:disabled{
+    background: var(--clr-white);
+    padding-left: 80px;
+}
+
+
+.search label ion-icon{ /*icono buscar*/
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 1em;
+    color: var(--clr-primary);
+}
+
+.search .disabled-search ion-icon{
+    position: absolute;
+    top: calc(4% + 3px);
+    left: calc(15%);
+    color: var(--clr-light-sky);
+}
+
+.search .disabled-search-index ion-icon{
+    position: absolute;
+    top: calc(25%);
+    left: calc(15%);
+    color: var(--clr-light-sky);
+}
+
+.search input.boton-busq {
+    width: 100px;
+    position: absolute;
+    padding: 0;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 4px;
+    border-width: 0;
+    background-color: #4d5bf9;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.user{ /*div que contiene el icono usuario*/
+    position: relative;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img{ /*imagen del usuario*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*---------------------los botones de acceso rapido-------------------*/
+
+.cardBox{ /*div que contiene todas las cartas*/
+    position: relative;
+    width: 100%;
+    padding: 20px; /*espacio entre el borde y el contenido*/
+    display: grid; /*que se vea en fila los botones-*/
+    grid-template-columns: repeat(5, 1fr); /*cuantas columnas y el tamaño de cada una*/
+    grid-gap: 10px; /*espacio entre cada boton*/
+}
+
+.cardBox .card{ /*cada carta*/
+    position: relative;
+    background: var(--clr-white);
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.161);
+}
+
+.cardBox .card .numbers { /*primera palabra de cada boton*/
+    position: relative;
+    font-weight: 600;
+    font-size: 1.4em;
+    color: var(--clr-primary);
+}	
+
+.cardBox .card .cardName { /*primera palabra de cada boton*/
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--clr-black);
+    margin-top: 2px;
+    margin-bottom: 5px;
+}	
+
+.cardBox .card .iconBx { /*segunda palabra de cada boton*/
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.cardBox .card .iconBx .crd-button{ /*boton de cada carta*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.cardBox .card .iconBx .crd-button ion-icon{
+    font-size: 2em;
+    color: var(--clr-mustard);
+    margin-right: 10px;
+}
+
+
+.cardBox .card:hover{
+    background: var(--clr-light-sky);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx{
+   color: var(--clr-white);
+}
+
+.cardBox .card:hover .iconBx ion-icon{
+    color: var(--clr-primary);
+    font-size: calc(3em + 10px);
+    transition: 0.3s ease-out;
+ }
+
+/*--------------el dichoso item y los titulos principales--------------*/
+.main-title{
+    width: calc(92%);
+    margin-left: calc(4%);
+    margin-top: 15px;
+}
+
+.main-title p{
+    font-size: 0.9em;
+    font-weight: 300;
+    color: var(--clr-gray);
+}
+
+.main-title .wow-title{
+    color: var(--clr-primary);
+    font-size: 1.8em;
+}
+
+#index.wow-title{
+    margin-top: 40px;
+    font-size: 2.2em;
+    color: var(--clr-primary);
+    font-weight: 800;
+}
+
+.item{
+    background: var(--clr-white); /*le da color blanco al item*/
+    
+    margin-bottom: 20px; /*margin-bottom: 20px; is a CSS property that sets the bottom margin of an element. 
+                            esto hace que cada item tenga un espacio de 20px entre si*/
+    padding: 15px; /*padding: 20px; is a CSS property that sets the padding area on all four sides of an element.*/
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 10px;
+    width: calc(92%);
+    margin-left: calc(4%);
+    margin-top: 5px;
+}
+
+/*-------------------para la pagina de ayuda-------------------*/
+
+#ayuda.item{
+    padding: 40px;
+}
+
+#ayuda.item h2{
+    color: var(--clr-mustard);
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#ayuda.item h3{
+    color: var(--clr-gray);
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+
+.accordion{
+    width: 60%;
+    height: 30px;
+    padding: 0 5px;
+    background-color: var(--clr-light-sky);
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    display: flex;
+    margin: 10px 0;
+    margin-top: 20px;
+    align-items: center;
+    
+}
+
+.accordion ion-icon{
+    color: var(--clr-white);
+    height: 25px;
+    width: 25px;
+    transition: all .2 ease-in;
+}
+
+.active {
+    background-color: var(--clr-primary);
+}
+
+.accordion h5{
+    font-size: 19px;
+    margin: 0;
+    margin-left: 10px;
+    padding: 3px 0 0 0;
+    font-weight: 400;
+    color: var(--clr-white);
+}
+
+.panel{
+    padding: 0 15px;
+    width: 80%;
+    border-left: 1px solid var(--clr-light-sky);
+    margin-left: 25px;
+    font-size: 17px;
+    text-align: justify;
+    overflow: hidden;
+    max-height: 0px;
+    transition: all .2s ease-in;
+
+}
