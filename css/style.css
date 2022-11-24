@@ -229,6 +229,12 @@ body{
     height: 40px;
 }
 
+#res.search{
+    height: 40px;
+    width: 700px;
+    right: 50px;
+}
+
 .search label{ /*label que contiene barra  navegadora y buscar*/
     position: relative;
     width: 100%;
@@ -267,6 +273,10 @@ body{
     top: 10px; 
 }
 
+.name .icn-pago{
+    top: 10px; 
+}
+
 .search .calle{
    position: flex;
    width: 65%;
@@ -277,6 +287,29 @@ body{
     width: 30%;
     margin-left: 66%;
     margin-top: -40px;
+}
+
+.search .name{
+    position: flex;
+    width: 30%;
+}
+
+.search .apellido1{
+    position: flex;
+    width: 30%;
+    margin-left: 31%;
+    margin-top: -40px;
+}
+
+.search .apellido2{
+    position: flex;
+    width: 30%;
+    margin-left: 62%;
+    margin-top: -40px;
+}
+
+.search .apellido2 input{
+    padding: 5px 25px;
 }
 
 .search .disabled-search ion-icon{
@@ -308,6 +341,11 @@ body{
 
 #pago.boton-busq{
     margin-left: 97%;
+    margin-top: -40px;
+}
+
+#res.boton-busq{
+    margin-left: 93%;
     margin-top: -40px;
 }
 
