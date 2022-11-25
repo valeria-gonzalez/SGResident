@@ -44,6 +44,7 @@
 
 .styled-table .iconos {
     padding: 5px;
+    text-align: center;
 }
 
 .styled-table tbody tr td.iconos-borde {
@@ -53,7 +54,6 @@
 .styled-table .iconos #editar {
     font-size: 25px;
     color: #0015ff;
-    margin: 0 5px 0 0;
 }
 
 .styled-table .iconos #eliminar {
@@ -68,8 +68,40 @@
     color:grey;
 }
 
+.boton-des {
+    padding: 6px;
+    border: none;
+    display: flex;
+}
 
-@media (max-width: 1330px) {
+.opciones {
+    background-color: #f9f9f9;
+    display: none;
+}
+
+.opciones a{
+    display: inline-block;
+    padding: 10px;
+    width: 100px;
+}
+
+.opciones a:hover {
+    background-color: #f1f1f1;
+}
+
+.desplegable:hover .opciones{
+    display: block;
+}
+
+.desplegable {
+    position: relative;
+}
+
+.texto{
+    color: black;
+}
+
+@media (max-width: 1400px) {
 
     .styled-table {
         width: 100%;

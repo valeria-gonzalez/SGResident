@@ -29,9 +29,8 @@
                                 header("location: secciones/index.php");
 
                             }else{
-                                echo "<script>
-                                        alert('Usuario o contraseña incorrectos');
-                                    </script>";
+                                echo"<div id = 'alert' class='alert alert - danger'>Usuario o contraseña incorrectos</div>
+                                ";
                             }
                         }
 
@@ -58,6 +57,16 @@
         form1.onclick = function(){
             form1.classList.toggle('active')
         }
+
+        setTimeout(() => {
+             const box = document.getElementById('alert');
+
+            // 👇️ removes element from DOM
+            box.style.display = 'none';
+
+            // 👇️ hides element (still takes up space on page)
+            // box.style.visibility = 'hidden';
+        }, 2500);
     </script>
 </body>
 </html>
