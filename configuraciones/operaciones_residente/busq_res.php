@@ -1,7 +1,10 @@
 <?php
 include_once '../conexion_bd.php';
-$id = $_POST["buscar"];
-$query_consulta = "SELECT * FROM titular WHERE id_titular = $id AND inactivo = 0";
+$nombre = $_POST["nombre_"];
+$pr_apell = $_POST["pr_apell"];
+$seg_apell = $_POST["seg_apell"];
+$query_consulta = "SELECT * FROM titular WHERE nombre = '$nombre' AND pr_apell = '$pr_apell' 
+                    AND seg_apell = '$seg_apell' AND inactivo = '0'";
 $consulta = $conexion -> query($query_consulta);
 ?>
 
@@ -60,11 +63,18 @@ $consulta = $conexion -> query($query_consulta);
                                 <td><?php echo $row['CELULAR'];?></td>
                                 <td><?php echo $row['TEL_CASA'];?></td>
                                 <td class ="iconos-borde">
-                                    <div class = "iconos">
-                                        <figcaption>Editar</figcaption>
-                                        <a href="#"><i id = "editar" class="fa-solid fa-square-pen"></i></a>
-                                        <figcaption>Eliminar</figcaption>
-                                        <a href="eliminar_res.php?id_=<?php echo $row['ID_TITULAR']; ?> " onclick='return confirmacion()'><i id = "eliminar" class="fa-solid fa-user-slash"></i></a>
+                                <div class="desplegable">
+                                <button class="boton-des"><i class="fa-sharp fa-solid fa-caret-down"></i></button>
+                                    <div class="opciones">                        
+                                            <div class = "iconos">           
+                                                <figcaption class= "texto">Editar</figcaption>
+                                                <a href="#"><i id = "editar" class="fa-solid fa-square-pen"></i></a>
+                                                <figcaption class= "texto">Eliminar</figcaption>
+                                                <a href="eliminar_res.php?id_=<?php echo $row['ID_TITULAR']; ?> " onclick='return confirmacion()'><i id = "eliminar" class="fa-solid fa-user-slash"></i></a>
+                                                <figcaption class= "texto">Detalles</figcaption>
+                                                <a href="detalles_res.php?id_=<?php echo $row['ID_TITULAR']; ?>" id = "editar"><i class="fa-solid fa-circle-info"></i></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </td>
                             

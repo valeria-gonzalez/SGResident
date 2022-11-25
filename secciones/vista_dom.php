@@ -49,7 +49,6 @@
                                 <th>Vialidad 2</th>
                                 <th>Referencias</th>
                                 <th>Titular Actual</th>
-                                <th>Pagos</th>
                         </thead>
 
                         <tbody>
@@ -64,7 +63,6 @@
                                     <td><?php echo $obj->VIALIDAD_2?></td>
                                     <td><?php echo $obj->REFERENCIAS?></td>
                                     <td><?php echo $obj->TITULAR?></td>
-                                    <td><a id ="pagos" href="../configuraciones/operaciones_pago/busq_pago.php"><i class="fa-solid fa-money-bill-transfer"></i></a></td>
                                 </tr>
                             <?php } } }?>
                         </tbody>
