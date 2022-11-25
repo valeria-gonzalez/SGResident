@@ -4,7 +4,7 @@ $id = $_GET["id_"];
 $query_consulta = "SELECT * FROM titular WHERE id_titular = '$id' AND inactivo = '0'";
 $consulta = $conexion -> query($query_consulta);
 
-$query_meses = "SELECT CONCAT(p.MES,' ',p.FCHA_PAGO) AS MES, m.TIPO
+$query_meses = "SELECT *, m.TIPO
                 FROM pago AS p
                 JOIN metodo_pago as m ON p.ID_PAGO = m.ID_PAGO
                 JOIN titular as t ON p.ID_TITULAR = '$id'
@@ -12,7 +12,7 @@ $query_meses = "SELECT CONCAT(p.MES,' ',p.FCHA_PAGO) AS MES, m.TIPO
                 GROUP BY p.ID_PAGO";
 $consulta_meses = $conexion -> query($query_meses);
 
-$query_adeudos = "SELECT CONCAT (p.MES,' ',p.FCHA_PAGO) AS FECHA
+$query_adeudos = "SELECT *
                 FROM pago AS p
                 JOIN titular as t ON p.ID_TITULAR = '$id'
                 WHERE p.ADEUDO = '1'
@@ -83,8 +83,12 @@ $consulta_adeudos = $conexion -> query($query_adeudos);
                 <div class="table-wrapper">
                     <table class="styled-table">
                         <thead>
-                                <th>Meses pagados</th>
-                                <th>Metodo de pago</th>
+                                <th>ID</th>
+                                <th>Fecha de pago</th>
+                                <th>Concepto</th>
+                                <th>Monto</th>
+                                <th>Cantidad recibida</th>
+                                <th>Metodo</th>
                         </thead>
 
                         <tbody>
@@ -92,8 +96,12 @@ $consulta_adeudos = $conexion -> query($query_adeudos);
                         if(mysqli_num_rows($consulta_meses) > 0){
                             while($row = $consulta_meses -> fetch_assoc()){?>                        
                             <tr>
-                                <td><?php echo $row["MES"];?></td>
-                                <td><?php echo $row['TIPO'];?></td>                       
+                                <th class="id-azul"><?php echo $row['ID_PAGO'];?></th>
+                                <td><?php echo $row['FCHA_PAGO'];?></td>
+                                <td><?php echo $row['MES'];?></td>
+                                <td><?php echo $row['MONTO'];?></td>
+                                <td><?php echo $row['RECIBIDO'];?></td>
+                                <td><?php echo $row['TIPO'];?></td>                     
                             </tr>
                             <!-- Abrimos de nuevo código php para cerrar todas nuestras iteraciones
                                 abiertas-->
@@ -101,11 +109,18 @@ $consulta_adeudos = $conexion -> query($query_adeudos);
                             }
                             ?>                                    
                         </tbody>
-                    </table>                     
+                    </table>
+                    
+                        <br>
+
+                        <h1 class = "wow-title">Adeudos</h1>                    
                     <div class="table-wrapper">
                         <table class="styled-table">
                             <thead>
-                                    <th>Meses no pagados</th>
+                            <th class = "id-azul">Id</th>
+                                <th>Fecha de registro</th>
+                                <th>Concepto</th>
+                                <th>Monto</th>
                             </thead>
 
                             <tbody>
@@ -113,7 +128,10 @@ $consulta_adeudos = $conexion -> query($query_adeudos);
                             if(mysqli_num_rows($consulta_adeudos) > 0){
                                 while($row = $consulta_adeudos -> fetch_assoc()){?>                        
                                 <tr>
-                                    <td><?php echo $row["FECHA"];?></td>                      
+                                    <th class="id-azul"><?php echo $row['ID_PAGO'];?></th>
+                                    <td><?php echo $row['FCHA_PAGO'];?></td>
+                                    <td><?php echo $row['MES'];?></td>
+                                    <td><?php echo $row['MONTO'];?></td>                      
                                 </tr>
                                 <!-- Abrimos de nuevo código php para cerrar todas nuestras iteraciones
                                     abiertas-->
