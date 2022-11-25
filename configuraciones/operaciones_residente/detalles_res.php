@@ -1,14 +1,17 @@
 <?php
 include_once '../conexion_bd.php';
 $id = $_GET["id_"];
-$query_consulta = "SELECT CONCAT(t.NOMBRE,' ',t.PR_APELL,' ',t.SEG_APELL) AS NOMBRE, t.CELULAR, t.TEL_CASA, CONCAT(p.MES,' ',p.FCHA_PAGO) AS MESES_P, m.TIPO 
-                    FROM titular AS t 
-                    INNER JOIN pago p USING (ID_TITULAR)
-                    INNER JOIN metodo_pago m USING (ID_PAGO)
-                    WHERE t.ID_TITULAR = '$id' AND p.INACTIVO = '0'";
+$query_consulta = "SELECT CONCAT(NOMBRE,' ',PR_APELL,' ',SEG_APELL) AS NOMBRE, CELULAR, TEL_CASA 
+                    FROM titular
+                    WHERE ID_TITULAR = '$id'";
 $consulta = $conexion -> query($query_consulta);
 
-
+$query_meses = "SELECT CONCAT(p.MES,' ',p.FCHA_PAGO) AS MES, m.TIPO, p.ID_PAGO, m.ID_PAGO AS P
+                FROM pago AS p
+                INNER JOIN metodo_pago as m
+                INNER JOIN titular as t
+                WHERE '$id' = p.ID_TITULAR AND p.INACTIVO = '0'";
+$consulta_meses = $conexion -> query($query_meses);
 ?>
 
 
@@ -18,7 +21,7 @@ $consulta = $conexion -> query($query_consulta);
     <META name = "viewport" content = "width = device-width, initial-scale = 1.0">
     <title>Residentes</title>
     <link rel = "stylesheet" href = "../../css/style.css">
-    <link rel = "stylesheet" href = "../../css/tablas_opc.css">
+    <link rel = "stylesheet" href = "../../css/tablas.css">
     <script src="https://kit.fontawesome.com/e35dd15ecb.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -47,8 +50,7 @@ $consulta = $conexion -> query($query_consulta);
 
                         <?php
                         if(mysqli_num_rows($consulta) > 0){
-                            $row=$consulta -> fetch_assoc()?>
-                        
+                            $row = $consulta -> fetch_assoc()?>
                             <tr>
                                 <!-- Imprimiremos con obj todo aquella columna a mostrar junto con sus 
                                 datos -->
@@ -63,35 +65,34 @@ $consulta = $conexion -> query($query_consulta);
                                     
                         </tbody>
                     </table>
-
+                </div>
             <br>
-            <div class = "main-title">
-                <h1 class = "wow-title">Pagos</h1>
-            </div>
 
-            <div class = "item" id = "tabla-res">
+                <h1 class = "wow-title">Pagos</h1>
                 <div class="table-wrapper">
                     <table class="styled-table">
                         <thead>
-                            <h2>
                                 <th>Meses pagados</th>
                                 <th>Metodo de pago</th>
+                                <th>ID</th>
+                                <th>ID Pago</th>
                         </thead>
+
                         <tbody>
                         <?php
-                        if(mysqli_num_rows($consulta) > 0){
-                            while($row=$consulta -> fetch_assoc()){?>
-                        
+                        if(mysqli_num_rows($consulta_meses) > 0){
+                            while($row = $consulta_meses -> fetch_assoc()){?>                        
                             <tr>
-                                <td><?php echo $row["MESES_P"];?></td>
-                                <td><?php echo $row['TIPO'];?></td>                       
+                                <td><?php echo $row["MES"];?></td>
+                                <td><?php echo $row['TIPO'];?></td>  
+                                <td><?php echo $row['ID_PAGO'];?></td>
+                                <td><?php echo $row["P"];?></td>                       
                             </tr>
                             <!-- Abrimos de nuevo código php para cerrar todas nuestras iteraciones
                                 abiertas-->
                             <?php }
                             }
-                            ?>
-                                    
+                            ?>                                    
                         </tbody>
                     </table> 
                 </div> <!--end main-->
