@@ -83,7 +83,7 @@ $consulta_adeudos = $conexion -> query($query_adeudos);
                 <div class="table-wrapper">
                     <table class="styled-table">
                         <thead>
-                                <th>ID</th>
+                                <th class = "id-azul">ID</th>
                                 <th>Fecha de pago</th>
                                 <th>Concepto</th>
                                 <th>Monto</th>
@@ -117,7 +117,7 @@ $consulta_adeudos = $conexion -> query($query_adeudos);
                     <div class="table-wrapper">
                         <table class="styled-table">
                             <thead>
-                            <th class = "id-azul">Id</th>
+                            <th class = "id-azul">ID</th>
                                 <th>Fecha de registro</th>
                                 <th>Concepto</th>
                                 <th>Monto</th>
