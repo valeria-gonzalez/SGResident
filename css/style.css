@@ -483,6 +483,11 @@ body{
     margin-top: 5px;
 }
 
+#tabla-res.item{
+    margin-left: 0px;
+    width: 100%;
+}
+
 /*-------------------para la pagina de ayuda-------------------*/
 
 #ayuda.item{

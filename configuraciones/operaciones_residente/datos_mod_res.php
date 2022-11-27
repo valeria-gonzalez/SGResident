@@ -1,4 +1,5 @@
 <?php
+
     function getNombres(){
         if($_SERVER['REQUEST_METHOD'] == 'POST') //esta linea resulta necesaria pq se debe diferenciar si se manda por post o get
             return $_POST['txtNombre']; //guardamos el valor del campo referenciandolo por su nombre

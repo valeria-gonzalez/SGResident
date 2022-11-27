@@ -21,6 +21,7 @@ include_once '../configuraciones/conexion_bd.php';
     <link rel="stylesheet" href="../css/modal.css">
     <!--<script src="../js/jquery-3.6.0.min.js"></script>-->
     <!--link rel="shortcut icon" href="src/1.png"-->
+    <link rel="icon" type = "image" href="/sgclaro/favicon.png"> 
 </head>
 
 <body>
@@ -159,7 +160,7 @@ include_once '../configuraciones/conexion_bd.php';
     <!--codigo php usado para incluir el header sin necesidad del codigo-->
 
     <!--------------------------------------------------------- Modal, aqui se agrega el residente------------------------------------------------------------------->
-    <div class="modal fade" id="agregar-residente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" id="agregarresidente">
+    <div class="modal fade" id="agregar-residente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -405,7 +406,7 @@ include_once '../configuraciones/conexion_bd.php';
                             <select class="form-select" name="selTitular" id="id_titular" required="">
                                 <option selected="" disabled="" value="">Escoger titular...</option>
                                 <?php
-                                $rsM = mysqli_query($conexion, "SELECT * FROM titular");
+                                $rsM = mysqli_query($conexion, "SELECT * FROM titular WHERE INACTIVO = 0");
                                 //recorriendo por todos los materiales que existen en la bd, rsM es el resultado de la consulta de arriba
                                 while ($titular = mysqli_fetch_array($rsM)) {
                                     echo "<option value = '$titular[0]'> $titular[1] $titular[2] $titular[3]  </option>"; //material[0] es el id (el valor) y material[1] es el nombre (que se muestra en la opcion)
@@ -424,7 +425,7 @@ include_once '../configuraciones/conexion_bd.php';
                                 <select name="selDomPago" class="form-select" id="domiciliopago" required="">
                                     <option selected="" disabled="" value="">Escoger domicilio...</option>
                                     <?php
-                                    $rsM = mysqli_query($conexion, "SELECT * FROM domicilio");
+                                    $rsM = mysqli_query($conexion, "SELECT * FROM domicilio WHERE ID_TITULAR IS NOT NULL");
                                     //recorriendo por todos los materiales que existen en la bd, rsM es el resultado de la consulta de arriba
                                     while ($domicilio = mysqli_fetch_array($rsM)) {
                                         echo "<option value = '$domicilio[0]+$domicilio[1]'> $domicilio[0] $domicilio[1] </option>"; //material[0] es el id (el valor) y material[1] es el nombre (que se muestra en la opcion)

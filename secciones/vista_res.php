@@ -11,6 +11,7 @@ $consulta= $conexion -> query($query_consulta)
     <title>Residentes</title>
     <link rel = "stylesheet" href = "../css/style.css">
     <link rel = "stylesheet" href = "../css/tablas.css">
+    <link rel="icon" type = "image" href="/sgclaro/favicon.png"> 
 </head>
 <body>
     <div class = "container">
