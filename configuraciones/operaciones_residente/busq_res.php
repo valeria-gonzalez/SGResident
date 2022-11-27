@@ -4,8 +4,8 @@ include_once '../conexion_bd.php';
 $nombre = $_POST["nombre_"];
 $pr_apell = $_POST["pr_apell"];
 $seg_apell = $_POST["seg_apell"];
-$query_consulta = "SELECT * FROM titular WHERE nombre = '$nombre' AND pr_apell = '$pr_apell' 
-                    AND seg_apell = '$seg_apell' AND inactivo = '0'";
+$query_consulta = "SELECT * FROM titular WHERE nombre LIKE '%$nombre%' AND pr_apell LIKE '%$pr_apell%' 
+                    AND seg_apell LIKE '%$seg_apell%' AND inactivo = '0'";
 $consulta = $conexion -> query($query_consulta);
 ?>
 

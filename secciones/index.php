@@ -181,7 +181,7 @@ include_once '../configuraciones/conexion_bd.php';
                     <form action="../configuraciones/operaciones_residente/agregar_res.php" method="POST" class="row g-3 needs-validation was-validated">
                         <div class="col-md-4">
                             <label for="nombre_residente" class="form-label">Nombre(s)</label>
-                            <input type="text" name="txtNombre" class="form-control" id="nombreresidente" autocomplete="off" required>
+                            <input type="text" name="txtNombre" class="form-control" id="nombreresidente" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -193,7 +193,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-4">
                             <label for="apellido_1_residente" class="form-label">Apellido 1</label>
-                            <input type="text" name="txtApellido1" class="form-control" id="apellido_1_residente" autocomplete="off" required>
+                            <input type="text" name="txtApellido1" class="form-control" id="apellido_1_residente" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -205,7 +205,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-4">
                             <label for="apellido_2_residente" class="form-label">Apellido 2</label>
-                            <input type="text" name="txtApellido2" class="form-control" id="apellido_2_residente" autocomplete="off" required>
+                            <input type="text" name="txtApellido2" class="form-control" id="apellido_2_residente" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -219,7 +219,7 @@ include_once '../configuraciones/conexion_bd.php';
                             <label for="edad" class="form-label">Edad</label>
                             <div class="input-group has-validation">
 
-                                <input type="number" name="txtEdad" class="form-control" id="edad" aria-describedby="inputGroupPrepend" required autocomplete="off">
+                                <input type="number" name="txtEdad" class="form-control" id="edad" aria-describedby="inputGroupPrepend" required autocomplete="off" required pattern="[0-9+]" title="Numeros de 0 a 9.">
                                 <div class="invalid-feedback">
                                     Por favor ponga la edad
                                 </div>
@@ -243,18 +243,18 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-6">
                             <label for="telefono" class="form-label">Telefono</label>
-                            <input type="text" name="txtTelefono" class="form-control" id="telefono" required="10" autocomplete="off">
+                            <input type="text" name="txtTelefono" class="form-control" id="telefono"  minlength="10" maxlength="25" required pattern="^[0-9]+" title="Numeros de 0 a 9. Tamaño máximo: 25 digitos" autocomplete="off">
                             <div class="invalid-feedback">
-                                Numero a 10 digitos.
+                                Numero de preferencia a 10 digitos o más.
                             </div>
                         </div>
                         <!--end col-md-6-->
 
                         <div class="col-md-6">
                             <label for="celular" class="form-label">Celular</label>
-                            <input type="text" name="txtCelular" class="form-control" id="celular" type="number" required autocomplete="off">
+                            <input type="text" name="txtCelular" class="form-control" id="celular" type="number" minlength="10" maxlength="25" required pattern="^[0-9]+" title="Numeros de 0 a 9. Tamaño máximo: 25 digitos" autocomplete="off">
                             <div class="invalid-feedback">
-                                Numero a 10 digitos.
+                                Numero de preferencia a 10 digitos o más.
                             </div>
                         </div>
                         <!--end col-md-6-->
@@ -299,7 +299,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-6">
                             <label for="domicilio" class="form-label">Calle</label>
-                            <input type="text" name="txtDomicilio" class="form-control" id="domicilio" autocomplete="off" required disabled>
+                            <input type="text" name="txtDomicilio" class="form-control" id="domicilio" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
                             <div class="invalid-feedback">
                                 Por favor escriba la calle.
                             </div>
@@ -308,7 +308,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-6">
                             <label for="numero_casa" class="form-label">Número de casa</label>
-                            <input type="text" name="txtNoCasa" class="form-control" id="numerocasa" autocomplete="off" required disabled>
+                            <input type="text" name="txtNoCasa" class="form-control" id="numerocasa" autocomplete="off" required pattern="^[0-9]+" title="Numeros de 0 a 9." required disabled>
                             <div class="invalid-feedback">
                                 Por favor escriba el número de casa.
                             </div>
@@ -317,7 +317,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-6">
                             <label for="entrevialidad_1" class="form-label">Entre vialidad 1</label>
-                            <input type="text" name="txtVialidad1" class="form-control" id="entrevialidad1" autocomplete="off" required disabled>
+                            <input type="text" name="txtVialidad1" class="form-control" id="entrevialidad1" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
                             <div class="invalid-feedback">
                                 Por favor escriba la entre vialidad 1.
                             </div>
@@ -326,7 +326,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-6">
                             <label for="entrevialidad_2" class="form-label">Entre vialidad 2</label>
-                            <input type="text" name="txtVialidad2" class="form-control" id="entrevialidad2" autocomplete="off" required disabled>
+                            <input type="text" name="txtVialidad2" class="form-control" id="entrevialidad2" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
                             <div class="invalid-feedback">
                                 Por favor escriba la entre vialidad 2.
                             </div>
@@ -335,7 +335,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-12">
                             <label for="referencias" class="form-label">Referencias</label>
-                            <input type="text" name="txtReferencias" class="form-control" id="referencias" autocomplete="off" required disabled>
+                            <input type="text" name="txtReferencias" class="form-control" id="referencias" autocomplete="off" maxlength="50" required pattern="[A-Za-z0-9]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
                             <div class="invalid-feedback">
                                 Por favor escriba algunas referencias.
                             </div>
@@ -446,7 +446,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-4">
                             <label for="nombre_pagador" class="form-label">Nombre(s)</label>
-                            <input type="text" class="form-control" id="nombre_pagador" required name="txtResponsable" autocomplete="off" disabled>
+                            <input type="text" class="form-control" id="nombre_pagador" required name="txtResponsable" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." disabled>
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -456,7 +456,8 @@ include_once '../configuraciones/conexion_bd.php';
                         </div>
                         <div class="col-md-4">
                             <label for="apellido_1_pagador" class="form-label">Apellido 1</label>
-                            <input type="text" class="form-control" id="apellido_1_pagador" required="" name="txtApell1Res" autocomplete="off" disabled>
+                            <input type="text" class="form-control" id="apellido_1_pagador" name="txtApell1Res" autocomplete="off" maxlength="50"
+                            required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." disabled>
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -467,7 +468,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-4">
                             <label for="apellido_2_pagador" class="form-label">Apellido 2</label>
-                            <input type="text" class="form-control" id="apellido_2_pagador" required="" name="txtApell2Res" autocomplete="off" disabled>
+                            <input type="text" class="form-control" id="apellido_2_pagador" name="txtApell2Res" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." disabled>
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -544,27 +545,27 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-9">
                             <label for="num_cheque" class="form-label">Número de Cheque</label>
-                            <input class="form-control" type="text" id="num_cheque" name="txtNoCheque" autocomplete="off" disabled>
+                            <input class="form-control" type="text" id="num_cheque" name="txtNoCheque" autocomplete="off" minlength="1" maxlength="20" required pattern="^[0-9]+" title="Numeros de 0 a 9. Tamaño máximo: 20 dígitos." disabled>
                         </div>
 
                         <div class="col-md-9">
                             <label for="num_tarjeta" class="form-label">Número de tarjeta</label>
-                            <input class="form-control" type="text" id="num_tarjeta" name="txNoTarjeta" disabled autocomplete="off">
+                            <input class="form-control" type="text" id="num_tarjeta" name="txNoTarjeta" minlength="16" maxlength="20" required pattern="^[0-9]+" title="Numeros de 0 a 9. De 16 a 20 dígitos." disabled autocomplete="off">
                         </div>
 
                         <div class="col-md-6">
                             <label for="fecha_exp" class="form-label">Fecha de expiracion (MM/AA)</label>
-                            <input class="form-control" type="text" id="fecha_exp" name="txtFechaExp" disabled autocomplete="off">
+                            <input class="form-control" type="text" id="fecha_exp" name="txtFechaExp" minlength="4" maxlength="4" required pattern="^[0-9]+" title="Numeros de 0 a 9." disabled autocomplete="off">
                         </div>
 
                         <div class="col-md-4">
                             <label for="cvv" class="form-label">CVV</label>
-                            <input class="form-control" type="text" id="cvv" name="txtCVV" disabled autocomplete="off">
+                            <input class="form-control" type="text" id="cvv" name="txtCVV" minlength="3" maxlength="3" required pattern="^[0-9]+" title="Numeros de 0 a 9." disabled autocomplete="off">
                         </div>
 
                         <div class="col-md-9">
                             <label for="clave_transferencia" class="form-label">Clave transferencia</label>
-                            <input class="form-control" type="text" id="clave_transferencia" name="txtClaveTrans" disabled autocomplete="off">
+                            <input class="form-control" type="text" id="clave_transferencia" name="txtClaveTrans" minlength="1" maxlength="20" required pattern="^[0-9]+" title="Numeros de 0 a 9. Tamaño máximo: 20 dígitos."" disabled autocomplete="off">
                         </div>
                         <!-- -->
 
@@ -604,7 +605,7 @@ include_once '../configuraciones/conexion_bd.php';
                     <form action="../configuraciones/operaciones_dom/agregar_dom.php" method="POST" class="row g-3 needs-validation was-validated">
                         <div class="col-md-6">
                             <label for="domicilio" class="form-label">Calle</label>
-                            <input type="text" class="form-control" id="domicilio" required="" name="domCalle" autocomplete="off">
+                            <input type="text" class="form-control" id="domicilio" name="domCalle" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." autocomplete="off">
                             <div class="invalid-feedback">
                                 Por favor escriba la calle.
                             </div>
@@ -613,7 +614,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-6">
                             <label for="numero_casa" class="form-label">Número de casa</label>
-                            <input type="text" class="form-control" id="numerocasa" required="" name="domNoCasa" autocomplete="off">
+                            <input type="text" class="form-control" id="numerocasa" name="domNoCasa" required pattern="^[0-9]+" title="Numeros de 0 a 9." autocomplete="off">
                             <div class="invalid-feedback">
                                 Por favor escriba el número de casa.
                             </div>
@@ -622,7 +623,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-6">
                             <label for="entrevialidad_1" class="form-label">Entre vialidad 1</label>
-                            <input type="text" class="form-control" id="entrevialidad1" required="" name="domVial1" autocomplete="off">
+                            <input type="text" class="form-control" id="entrevialidad1" name="domVial1" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." autocomplete="off">
                             <div class="invalid-feedback">
                                 Por favor escriba la entre vialidad 1.
                             </div>
@@ -631,7 +632,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-md-6">
                             <label for="entrevialidad_2" class="form-label">Entre vialidad 2</label>
-                            <input type="text" class="form-control" id="entrevialidad2" required="" name="domVial2" autocomplete="off">
+                            <input type="text" class="form-control" id="entrevialidad2" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." name="domVial2" autocomplete="off">
                             <div class="invalid-feedback">
                                 Por favor escriba la entre vialidad 2.
                             </div>
@@ -640,7 +641,7 @@ include_once '../configuraciones/conexion_bd.php';
 
                         <div class="col-12">
                             <label for="referencias" class="form-label">Referencias</label>
-                            <input type="text" class="form-control" id="referencias" required="" name="domReferencias" autocomplete="off">
+                            <input type="text" class="form-control" id="referencias" maxlength="50" required pattern="[A-Za-z0-9]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." name="domReferencias" autocomplete="off">
                             <div class="invalid-feedback">
                                 Por favor escriba algunas referencias.
                             </div>

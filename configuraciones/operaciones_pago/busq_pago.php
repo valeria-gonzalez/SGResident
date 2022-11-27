@@ -48,7 +48,7 @@ $consulta_adeudo = $conexion -> query($query_adeudo);
 </head>
 <body>
     <?php
-        if($consulta_pago || $consulta_adeudo){
+        if(mysqli_num_rows($consulta_pago) > 0 || mysqli_num_rows($consulta_adeudo) > 0){
     ?>
     <div class = "container">
         <!--nav aqui-->
@@ -100,7 +100,9 @@ $consulta_adeudo = $conexion -> query($query_adeudo);
                                                 <i id = "editar" class="fa-solid fa-square-pen"></i>
                                         </button>
                                         <figcaption>Eliminar</figcaption>
-                                        <a href="eliminar_pago.php?id_=<?php echo $row['ID_PAGO']; ?>" onclick='return confirmacion()'><i id = "eliminar" class="fa-solid fa-user-slash"></i></a>
+                                        <a href="eliminar_pago.php?id_=<?php echo $row['ID_PAGO']; ?>" onclick='return confirmacion()'>
+                                        <i id="eliminar" class="fa-solid fa-eraser"></i>
+                                        </a>
                                     </div>
                                 </td>
                             
