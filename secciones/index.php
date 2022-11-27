@@ -40,6 +40,9 @@ include_once '../configuraciones/conexion_bd.php';
             <!--main content, aqui decides si poner las cards o el item-->
             <div class="main-title">
                 <h1 class="wow-title" id="index">Bienvenido de vuelta</h1>
+                <div class = "hi">
+                    <img src = "../src/waving-hand.png" alt = "hi">
+                </div>
             </div>
             <!--en el index iran las cards, es decir, los cuatro botones-->
             <div class="cardBox">
@@ -401,15 +404,17 @@ include_once '../configuraciones/conexion_bd.php';
                             </div>
                         </div>
 
-                        <div class="col-md-5">
-                            <label for="id_titular" class="form-label">Nombre del titular</label>
+                        <div class="col-md-9">
+                            <label for="id_titular" class="form-label">Nombre del titular y domicilio</label>
                             <select class="form-select" name="selTitular" id="id_titular" required="">
-                                <option selected="" disabled="" value="">Escoger titular...</option>
+                                <option selected="" disabled="" value="">Escoger titular y domicilio...</option>
                                 <?php
                                 $rsM = mysqli_query($conexion, "SELECT * FROM titular WHERE INACTIVO = 0");
                                 //recorriendo por todos los materiales que existen en la bd, rsM es el resultado de la consulta de arriba
                                 while ($titular = mysqli_fetch_array($rsM)) {
-                                    echo "<option value = '$titular[0]'> $titular[1] $titular[2] $titular[3]  </option>"; //material[0] es el id (el valor) y material[1] es el nombre (que se muestra en la opcion)
+                                    $rsD = mysqli_query($conexion, "SELECT * FROM domicilio WHERE ID_TITULAR = $titular[0]");
+                                    $domres = mysqli_fetch_array($rsD);
+                                    echo "<option value = '$titular[0]'> $titular[1] $titular[2] $titular[3] - $domres[0] $domres[1] </option>"; //material[0] es el id (el valor) y material[1] es el nombre (que se muestra en la opcion)
                                 }
                                 ?>
                             </select>
@@ -418,26 +423,6 @@ include_once '../configuraciones/conexion_bd.php';
                             </div>
                         </div>
                         <!-- -->
-
-                        <div class="col-md-6">
-                            <label for="domiciliopago" class="form-label">Domicilio </label>
-                            <div class="input-group has-validation">
-                                <select name="selDomPago" class="form-select" id="domiciliopago" required="">
-                                    <option selected="" disabled="" value="">Escoger domicilio...</option>
-                                    <?php
-                                    $rsM = mysqli_query($conexion, "SELECT * FROM domicilio WHERE ID_TITULAR IS NOT NULL");
-                                    //recorriendo por todos los materiales que existen en la bd, rsM es el resultado de la consulta de arriba
-                                    while ($domicilio = mysqli_fetch_array($rsM)) {
-                                        echo "<option value = '$domicilio[0]+$domicilio[1]'> $domicilio[0] $domicilio[1] </option>"; //material[0] es el id (el valor) y material[1] es el nombre (que se muestra en la opcion)
-                                    }
-                                    ?>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Selecciona el domicilio del residente
-                                </div>
-                            </div>
-
-                        </div>
 
                         <div class="modal-header" id="indicacion2">
                             <label>Ingrese la información del responsable del pago</label>

@@ -38,7 +38,7 @@
                 <h1 class = "wow-title">Domicilios</h1>
             </div>
 
-            <div class = "item" id = "tabla-res">
+            <div class = "item">
                 <div class="table-wrapper">
                     <table class="styled-table">
 
