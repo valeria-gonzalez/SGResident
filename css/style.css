@@ -133,10 +133,6 @@ body{
     text-align: center; /*junta icono con texto*/
 }
 
-#mod.icon ion-icon{
-    margin-top: 15px;
-}
-
 .navigation ul li a .icon ion-icon{ /*estilo del icono*/
     font-size: 1.2rem;
 }
@@ -261,7 +257,7 @@ body{
 
 .search label input:disabled{
     background: var(--clr-white);
-    padding-left: 100px;
+    padding-left: 80px;
 }
 
 
@@ -293,10 +289,6 @@ body{
     margin-top: -40px;
 }
 
-.search .numero input{
-    padding: 5px 20px;
-}
-
 .search .name{
     position: flex;
     width: 30%;
@@ -322,15 +314,15 @@ body{
 
 .search .disabled-search ion-icon{
     position: absolute;
-    top: 5px;
-    left: 80px;
+    top: calc(4% + 3px);
+    left: calc(15%);
     color: var(--clr-light-sky);
 }
 
 .search .disabled-search-index ion-icon{
     position: absolute;
-    top: 10px;
-    left: 80px;
+    top: calc(25%);
+    left: calc(15%);
     color: var(--clr-light-sky);
 }
 
@@ -468,18 +460,6 @@ body{
 .main-title .wow-title{
     color: var(--clr-primary);
     font-size: 1.8em;
-}
-
-.main-title .hi{
-    height: 60px;
-    width: 60px;
-    margin-left: 480px;
-    margin-top: -75px;
-}
-
-.main-title .hi img{
-    height: 100%;
-    width: 100%;
 }
 
 #index.wow-title{

@@ -5,12 +5,11 @@
                         c1.ID_PAGO, c1.FCHA_PAGO, c1.MES, c1.MONTO, c1.RECIBIDO, 
                         CONCAT(c1.NOM_PAGADOR, ' ', c1.PAG_APELL_1, ' ', c1.PAG_APELL_2) AS RESPONSABLE,
                         CONCAT(c2.NOMBRE, ' ', c2.PR_APELL, ' ', c2.SEG_APELL) AS TITULAR,
-                        CONCAT(c3.CALLE, ' ', c3.NO_CASA) AS DOMICILIO, c4.TIPO
+                        CONCAT(c3.CALLE, ' ', c3.NO_CASA) AS DOMICILIO
                     FROM
                         pago c1 
                     INNER JOIN titular c2 USING (ID_TITULAR)
                     INNER JOIN domicilio c3 USING (ID_TITULAR)
-                    INNER JOIN metodo_pago c4 USING (ID_PAGO)
                     WHERE c1.ADEUDO = '0' AND c1.INACTIVO = '0'
                     GROUP BY
                     c1.ID_PAGO;";
@@ -18,7 +17,7 @@
     $cons_pago= mysqli_query($conexion,$query_pago);
 
     $query_adeudo = "SELECT 
-                        c1.ID_PAGO, c1.FCHA_PAGO, c1.MES, c1.MONTO, c1.RECIBIDO,
+                        c1.ID_PAGO, c1.FCHA_PAGO, c1.MES, c1.MONTO, 
                         CONCAT(c2.NOMBRE, ' ', c2.PR_APELL, ' ', c2.SEG_APELL) AS TITULAR,
                         CONCAT(c3.CALLE, ' ', c3.NO_CASA) AS DOMICILIO
                     FROM
@@ -57,7 +56,7 @@
                 <h1 class = "wow-title">Pagos</h1>
             </div>
 
-            <div class = "item">
+            <div class = "item" id = "tabla-res">
                 <div class="table-wrapper">
                     <table class="styled-table">
 
@@ -71,7 +70,6 @@
                                 <th>Responsable</th>
                                 <th>Titular</th>
                                 <th>Domicilio</th>
-                                <TH>Metodo de pago</TH>
                         </thead>
 
                         <tbody>
@@ -88,7 +86,6 @@
                                     <td><?php echo $obj->RESPONSABLE?></td>
                                     <td><?php echo $obj->TITULAR?></td>
                                     <td><?php echo $obj->DOMICILIO?></td>
-                                    <td><?php echo $obj->TIPO?></td>
                                     <td><a id ="pagos" href="../configuraciones/operaciones_pago/busq_pago.php"><i class="fa-solid fa-money-bill-transfer"></i></a></td>
                                 </tr>
                             <?php } } }?>
@@ -101,7 +98,7 @@
             <div class = "main-title">
                 <h1 class = "wow-title">Adeudos</h1>
             </div>
-            <div class = "item">
+            <div class = "item" id = "tabla-res">
                 <div class="table-wrapper">
                     <table class="styled-table">
                         <thead>
@@ -110,7 +107,6 @@
                                 <th>Fecha de registro</th>
                                 <th>Concepto</th>
                                 <th>Monto</th>
-                                <th>Cantidad recibida</th>
                                 <th>Titular</th>
                                 <th>Domicilio</th>
                         </thead>
@@ -125,7 +121,6 @@
                                     <td><?php echo $obj->FCHA_PAGO?></td>
                                     <td><?php echo $obj->MES?></td>
                                     <td><?php echo $obj->MONTO?></td>
-                                    <td><?php echo $obj->RECIBIDO?></td>
                                     <td><?php echo $obj->TITULAR?></td>
                                     <td><?php echo $obj->DOMICILIO?></td>
                                     <td><a id ="pagos" href="../configuraciones/operaciones_pago/busq_pago.php"><i class="fa-solid fa-money-bill-transfer"></i></a></td>
