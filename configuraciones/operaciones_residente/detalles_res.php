@@ -37,7 +37,7 @@ $consulta_adeudos = $conexion -> query($query_adeudos);
         <!---main-->
         <div class = "main">
             <!--aqui buscar-->
-            
+            <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/sgclaro/cabeceras/"; include($IPATH."nav-sin-buscar.html"); ?>
 
             <div class = "main-title">
                 <h1 class = "wow-title">Detalles de residente</h1>

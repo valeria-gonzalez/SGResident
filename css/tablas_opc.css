@@ -65,7 +65,7 @@
 .styled-table #editar:hover {
     transition: .2s;
     transform: translateY(-3px) scale(1.05);
-    color:grey;
+    color: #e2a415;
 }
 
 .boton-des {
@@ -118,4 +118,9 @@
         overflow-x: scroll;
         width: 100%;
     }
+}
+
+#res.editar{
+    border: none;
+    background: transparent;
 }

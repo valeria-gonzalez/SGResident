@@ -23,6 +23,7 @@
     <link rel = "stylesheet" href = "../css/style.css">
     <link rel = "stylesheet" href = "../css/tablas.css">
     <script src="https://kit.fontawesome.com/e35dd15ecb.js" crossorigin="anonymous"></script>
+    <link rel="icon" type = "image" href="/sgclaro/favicon.png"> 
 </head>
 <body>
     <div class = "container">
@@ -37,7 +38,7 @@
                 <h1 class = "wow-title">Domicilios</h1>
             </div>
 
-            <div class = "item" id = "tabla-res">
+            <div class = "item">
                 <div class="table-wrapper">
                     <table class="styled-table">
 
