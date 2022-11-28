@@ -94,13 +94,26 @@ $consulta_adeudo = $conexion -> query($query_adeudo);
                                 <td><?php echo $row["DOMICILIO"];?></td>
                                 <td><?php echo $row["TIPO"];?></td>
                                 <td class ="iconos-borde">
-                                    <div class = "iconos">
-                                        <figcaption>Editar</figcaption>
-                                        <a href="mod_pago.php?id_=<?php echo $row['ID_PAGO']; ?> "><i id = "editar" class="fa-solid fa-square-pen"></i></a>
-                                        
-                                        <figcaption>Eliminar</figcaption>
-                                        <a href="eliminar_pago.php?id_=<?php echo $row['ID_PAGO']; ?>" onclick='return confirmacion()'><i id = "eliminar" class="fa-solid fa-user-slash"></i></a>
+                                <div class="desplegable">
+                                <button class="boton-des"><i class="fa-sharp fa-solid fa-caret-down"></i></button>
+                                    <div class="opciones">
+                                        <div class = "iconos">
+                                            <figcaption class="texto">Editar</figcaption>
+                                            <a href="mod_pago.php?id_=<?php echo $row['ID_PAGO']; ?> ">
+                                                <i id = "editar" class="fa-solid fa-square-pen"></i>
+                                            </a>
+                                            
+                                            <figcaption class="texto">Eliminar</figcaption>
+                                            <a href="eliminar_pago.php?id_=<?php echo $row['ID_PAGO']; ?>" onclick='return confirmacion()'>
+                                                <i id = "eliminar" class="fa-solid fa-user-slash"></i></a>
+
+                                            <figcaption class="texto">Recibo</figcaption>
+                                            <a href="../../secciones/recibo_id.php?id_=<?php echo $row['ID_PAGO']; ?>">
+                                                <i class="fa-solid fa-receipt" id="editar"></i>
+                                            </a>
+                                        </div>
                                     </div>
+                                </div>
                                 </td>
                             
                             </tr>
