@@ -102,3 +102,12 @@ INSERT INTO metodo_pago(TIPO, NO_CUENTA, NO_CHEQUE, NO_TARJETA, COD_TARJETA,
 	('Cheque', null, null, null, null, null, null, 3);
 	
 select * from metodo_pago;
+
+create table login(
+usuario VARCHAR (20),
+contrasena VARCHAR (50),
+respuesta VARCHAR (15)
+);
+
+INSERT INTO “login” (“admin”, “contrasena”, "respuesta")
+VALUES (“admin”, “12345”, "sgresident");
