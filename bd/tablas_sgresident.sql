@@ -103,11 +103,5 @@ INSERT INTO metodo_pago(TIPO, NO_CUENTA, NO_CHEQUE, NO_TARJETA, COD_TARJETA,
 	
 select * from metodo_pago;
 
-create table login(
-usuario VARCHAR (20),
-contrasena VARCHAR (50),
-respuesta VARCHAR (15)
-);
-
-INSERT INTO “login” (“admin”, “contrasena”, "respuesta")
-VALUES (“admin”, “12345”, "sgresident");
+CREATE TABLE login ( id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, usuario VARCHAR (20), contrasena VARCHAR (50), respuesta VARCHAR (15) );
+INSERT INTO `login`(`usuario`, `contrasena`, `respuesta`) VALUES ('admin','1234','sgresident');
