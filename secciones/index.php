@@ -189,7 +189,7 @@ if (empty($_SESSION["usuario"])) {
                     <form action="../configuraciones/operaciones_residente/agregar_res.php" method="POST" class="row g-3 needs-validation was-validated">
                         <div class="col-md-4">
                             <label for="nombre_residente" class="form-label">Nombre(s)</label>
-                            <input type="text" name="txtNombre" class="form-control" id="nombreresidente" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
+                            <input type="text" name="txtNombre" class="form-control" id="nombreresidente" autocomplete="off" maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -307,7 +307,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="col-md-6">
                             <label for="domicilio" class="form-label">Calle</label>
-                            <input type="text" name="txtDomicilio" class="form-control" id="domicilio" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
+                            <input type="text" name="txtDomicilio" class="form-control" id="domicilio" autocomplete="off" maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
                             <div class="invalid-feedback">
                                 Por favor escriba la calle.
                             </div>
@@ -325,7 +325,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="col-md-6">
                             <label for="entrevialidad_1" class="form-label">Entre vialidad 1</label>
-                            <input type="text" name="txtVialidad1" class="form-control" id="entrevialidad1" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
+                            <input type="text" name="txtVialidad1" class="form-control" id="entrevialidad1" autocomplete="off" maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
                             <div class="invalid-feedback">
                                 Por favor escriba la entre vialidad 1.
                             </div>
@@ -334,7 +334,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="col-md-6">
                             <label for="entrevialidad_2" class="form-label">Entre vialidad 2</label>
-                            <input type="text" name="txtVialidad2" class="form-control" id="entrevialidad2" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
+                            <input type="text" name="txtVialidad2" class="form-control" id="entrevialidad2" autocomplete="off" maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
                             <div class="invalid-feedback">
                                 Por favor escriba la entre vialidad 2.
                             </div>
@@ -343,7 +343,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="col-12">
                             <label for="referencias" class="form-label">Referencias</label>
-                            <input type="text" name="txtReferencias" class="form-control" id="referencias" autocomplete="off" maxlength="50" required pattern="[A-Za-z0-9]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
+                            <input type="text" name="txtReferencias" class="form-control" id="referencias" autocomplete="off" maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s,.]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." required disabled>
                             <div class="invalid-feedback">
                                 Por favor escriba algunas referencias.
                             </div>
@@ -436,7 +436,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="col-md-4">
                             <label for="nombre_pagador" class="form-label">Nombre(s)</label>
-                            <input type="text" class="form-control" id="nombre_pagador" required name="txtResponsable" autocomplete="off" autocomplete="off" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." disabled>
+                            <input type="text" class="form-control" id="nombre_pagador" required name="txtResponsable" autocomplete="off" maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." disabled>
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -544,7 +544,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="col-md-6">
                             <label for="fecha_exp" class="form-label">Fecha de expiracion (MM/AA)</label>
-                            <input class="form-control" type="text" id="fecha_exp" name="txtFechaExp" disabled autocomplete="off" minlength="4" maxlength="4" required pattern="^[0-9]+" title="Numeros de 0 a 9.">
+                            <input class="form-control" type="text" id="fecha_exp" name="txtFechaExp" disabled autocomplete="off" minlength="5" maxlength="5" required pattern="[0-9][0-9]/[0-9][0-9]" title="Numeros de 0 a 9.">
                         </div>
 
                         <div class="col-md-4">
@@ -594,7 +594,7 @@ if (empty($_SESSION["usuario"])) {
                     <form action="../configuraciones/operaciones_dom/agregar_dom.php" method="POST" class="row g-3 needs-validation was-validated">
                         <div class="col-md-6">
                             <label for="domicilio" class="form-label">Calle</label>
-                            <input type="text" class="form-control" id="domicilio" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." name="domCalle" autocomplete="off">
+                            <input type="text" class="form-control" id="domicilio" maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." name="domCalle" autocomplete="off">
                             <div class="invalid-feedback">
                                 Por favor escriba la calle.
                             </div>
@@ -612,7 +612,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="col-md-6">
                             <label for="entrevialidad_1" class="form-label">Entre vialidad 1</label>
-                            <input type="text" class="form-control" id="entrevialidad1" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." name="domVial1" autocomplete="off">
+                            <input type="text" class="form-control" id="entrevialidad1" maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." name="domVial1" autocomplete="off">
                             <div class="invalid-feedback">
                                 Por favor escriba la entre vialidad 1.
                             </div>
@@ -621,7 +621,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="col-md-6">
                             <label for="entrevialidad_2" class="form-label">Entre vialidad 2</label>
-                            <input type="text" class="form-control" id="entrevialidad2" maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." name="domVial2" autocomplete="off">
+                            <input type="text" class="form-control" id="entrevialidad2" maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." name="domVial2" autocomplete="off">
                             <div class="invalid-feedback">
                                 Por favor escriba la entre vialidad 2.
                             </div>
@@ -630,7 +630,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="col-12">
                             <label for="referencias" class="form-label">Referencias</label>
-                            <input type="text" class="form-control" id="referencias" maxlength="50" required pattern="[A-Za-z0-9]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." name="domReferencias" autocomplete="off">
+                            <input type="text" class="form-control" id="referencias" maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s,.]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50." name="domReferencias" autocomplete="off">
                             <div class="invalid-feedback">
                                 Por favor escriba algunas referencias.
                             </div>
