@@ -296,7 +296,7 @@
 
                         <div class="col-md-4">
                             <label for="nombre_pagador" class="form-label">Nombre(s)</label>
-                            <input type="text" class="form-control" id="nombre_pagador" name="txtResponsable" value = "<?php echo $pago[5]; ?>" autocomplete="off" disabled>
+                            <input type="text" class="form-control" id="nombre_pagador" name="txtResponsable" value = "<?php echo $pago[5]; ?>" autocomplete="off" disabled maxlength="50" required pattern="[a-zA-Z][a-zA-Z\s]+" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -306,7 +306,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="apellido_1_pagador" class="form-label">Apellido 1</label>
-                            <input type="text" class="form-control" id="apellido_1_pagador" name="txtApell1Res" value = "<?php echo $pago[6]; ?>" autocomplete="off" disabled>
+                            <input type="text" class="form-control" id="apellido_1_pagador" name="txtApell1Res" value = "<?php echo $pago[6]; ?>" autocomplete="off" disabled maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -317,7 +317,7 @@
 
                         <div class="col-md-4">
                             <label for="apellido_2_pagador" class="form-label">Apellido 2</label>
-                            <input type="text" class="form-control" id="apellido_2_pagador" name="txtApell2Res" value = "<?php echo $pago[7]; ?>" autocomplete="off" disabled>
+                            <input type="text" class="form-control" id="apellido_2_pagador" name="txtApell2Res" value = "<?php echo $pago[7]; ?>" autocomplete="off" disabled maxlength="50" required pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -566,27 +566,27 @@
 
                         <div class="col-md-9">
                             <label for="num_cheque" class="form-label">Número de Cheque</label>
-                            <input class="form-control" type="text" id="num_cheque" name="txtNoCheque" autocomplete="off" disabled required>
+                            <input class="form-control" type="text" id="num_cheque" name="txtNoCheque" autocomplete="off" disabled required maxlength="20" pattern="^[0-9]+" title="Numeros de 0 a 9. Tamaño máximo: 20 dígitos.">
                         </div>
 
                         <div class="col-md-9">
                             <label for="num_tarjeta" class="form-label">Número de tarjeta</label>
-                            <input class="form-control" type="text" id="num_tarjeta" name="txNoTarjeta" disabled autocomplete="off" required>
+                            <input class="form-control" type="text" id="num_tarjeta" name="txNoTarjeta" disabled autocomplete="off" required minlength="16" maxlength="20" pattern="^[0-9]+" title="Numeros de 0 a 9. De 16 a 20 dígitos.">
                         </div>
 
                         <div class="col-md-6">
                             <label for="fecha_exp" class="form-label">Fecha de expiracion (MM/AA)</label>
-                            <input class="form-control" type="text" id="fecha_exp" name="txtFechaExp" disabled autocomplete="off" required>
+                            <input class="form-control" type="text" id="fecha_exp" name="txtFechaExp" disabled autocomplete="off" required minlength="5" maxlength="5" pattern="[0-9][0-9]/[0-9][0-9]" title="Numeros de 0 a 9.">
                         </div>
 
                         <div class="col-md-4">
                             <label for="cvv" class="form-label">CVV</label>
-                            <input class="form-control" type="text" id="cvv" name="txtCVV" disabled autocomplete="off" required>
+                            <input class="form-control" type="text" id="cvv" name="txtCVV" disabled autocomplete="off" required minlength="3" maxlength="3" pattern="^[0-9]+" title="Numeros de 0 a 9.">
                         </div>
 
                         <div class="col-md-9">
                             <label for="clave_transferencia" class="form-label">Clave transferencia</label>
-                            <input class="form-control" type="text" id="clave_transferencia" name="txtClaveTrans" disabled autocomplete="off" required>
+                            <input class="form-control" type="text" id="clave_transferencia" name="txtClaveTrans" disabled autocomplete="off" required minlength="1" maxlength="20" pattern="^[0-9]+" title="Numeros de 0 a 9. Tamaño máximo: 20 dígitos.">
                         </div>
                         <!-- -->
 

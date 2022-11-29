@@ -11,6 +11,16 @@
                             c1.CALLE, c1.NO_CASA;";
 
     $consulta= mysqli_query($conexion,$query_consulta);
+    
+
+    $query_sintit = "SELECT 
+                            c1.CALLE, c1.NO_CASA, c1.VIALIDAD_1, c1.VIALIDAD_2, c1.REFERENCIAS
+                        FROM
+                            domicilio c1
+                        WHERE ID_TITULAR IS NULL";
+                        
+
+    $consin= mysqli_query($conexion,$query_sintit);
     $cerrar_conexion = mysqli_close($conexion);
     //$consulta= $conexion -> query($query_consulta)
 ?>
@@ -64,6 +74,42 @@
                                     <td><?php echo $obj->VIALIDAD_2?></td>
                                     <td><?php echo $obj->REFERENCIAS?></td>
                                     <td><?php echo $obj->TITULAR?></td>
+                                </tr>
+                            <?php } } }?>
+                        </tbody>
+
+                    </table>    
+                </div>           
+            </div> <!--end item-->
+
+            <div class = "main-title">
+                <h1 class = "wow-title">Domicilios sin titular</h1>
+            </div>
+
+            <div class = "item">
+                <div class="table-wrapper">
+                    <table class="styled-table">
+
+                        <thead>
+                            <h2>
+                                <th>Calle</th>
+                                <th>Número</th>
+                                <th>Vialidad 1</th>
+                                <th>Vialidad 2</th>
+                                <th>Referencias</th>
+                        </thead>
+
+                        <tbody>
+                            <?php
+                                if($consin){
+                                    if(mysqli_num_rows($consin) > 0){
+                                        while($obj=mysqli_fetch_object($consin)){?>
+                                <tr>
+                                    <td><?php echo $obj->CALLE?></td>
+                                    <td><?php echo $obj->NO_CASA?></td>
+                                    <td><?php echo $obj->VIALIDAD_1?></td>
+                                    <td><?php echo $obj->VIALIDAD_2?></td>
+                                    <td><?php echo $obj->REFERENCIAS?></td>
                                 </tr>
                             <?php } } }?>
                         </tbody>
