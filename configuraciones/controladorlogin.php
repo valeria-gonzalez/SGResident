@@ -10,8 +10,9 @@ if (isset($_POST['botoningresar'])) {
             header("location: ./secciones/index.php");
             mysqli_close($conexion);
         } else {
-            echo "
-            <font color=\"red\">Acceso denegado</font> ";
+            echo "<script>
+            alert('Usuario o contraseña incorrectos');
+        </script>";
         }
     } else {
         echo "llena los campos";
@@ -22,13 +23,14 @@ if (isset($_POST['enviar'])) {
     if (!empty($_POST["respuesta"])) {
         $respuesta = $_POST["respuesta"];
 
-        $sql1 = $conexion->query("select * from login where usuario='$respuesta'  ");
+        $sql1 = $conexion->query("select * from login where respuesta='$respuesta'  ");
         if ($datos = $sql1->fetch_object()) {
             header("location: modificarcontra.php");
             mysqli_close($conexion);
         } else {
-            echo "
-            <font color=\"red\">Respuesta incorrecta</font> ";
+            echo "<script>
+            alert('Respuesta incorrecta');
+        </script>";
         }
     } else {
         echo "llena los campos";

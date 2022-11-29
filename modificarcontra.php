@@ -35,17 +35,11 @@
                     $sql = "update login set contrasena='$contra' where usuario = 'admin' ";
                     $resultado = (mysqli_query($conexion, $sql));
                     if ($resultado) {
-                        echo "<script language='JavaScript'>
-                        alert('Los datos se actualizaron');
 
-                        </script>";
                         header("location: index.php");
                         mysqli_close($conexion);
                     } else {
-                        echo "<script language='JavaScript'>
-                        alert('Los datos se actualizaron');
-                        
-                        </script>";
+
                         mysqli_close($conexion);
                     }
                 } else {
@@ -68,7 +62,7 @@
                 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" action="">
                     <input type="text" placeholder="Nueva contraseña" name="contra" />
 
-                    <button name="enviar">Actualizar</button>
+                    <button name="enviar" onclick='return contraseña_actualizada()'>Actualizar</button>
 
 
 
@@ -91,29 +85,10 @@
 
 
 
-    <script>
-        let form = document.querySelector('.form input');
-        let form1 = document.querySelector('.form input + input');
 
-        form.onclick = function() {
-            form.classList.toggle('active')
-        }
-
-        form1.onclick = function() {
-            form1.classList.toggle('active')
-        }
-
-        setTimeout(() => {
-            const box = document.getElementById('alert');
-
-            // 👇️ removes element from DOM
-            box.style.display = 'none';
-
-            // 👇️ hides element (still takes up space on page)
-            // box.style.visibility = 'hidden';
-        }, 2500);
     </script>
 </body>
+<script src="./js/alertas.js"></script>
 
 <?php
                 }

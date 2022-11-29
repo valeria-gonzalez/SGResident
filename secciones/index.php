@@ -26,7 +26,7 @@ if (empty($_SESSION["usuario"])) {
     <link rel="stylesheet" href="../css/modal.css">
     <!--<script src="../js/jquery-3.6.0.min.js"></script>-->
     <!--link rel="shortcut icon" href="src/1.png"-->
-    <link rel="icon" type = "image" href="/sgclaro/favicon.png"> 
+    <link rel="icon" type="image" href="/sgclaro/favicon.png">
 </head>
 
 <body>
@@ -44,9 +44,9 @@ if (empty($_SESSION["usuario"])) {
 
             <!--main content, aqui decides si poner las cards o el item-->
             <div class="main-title">
-                <h1 class="wow-title" id="index">Bienvenido de vuelta</h1>
-                <div class = "hi">
-                    <img src = "../src/waving-hand.png" alt = "hi">
+                <h1 class="wow-title" id="index">Bienvenido de vuelta <?php echo $_SESSION["usuario"]; ?></h1>
+                <div class="hi">
+                    <img src="../src/waving-hand.png" alt="hi">
                 </div>
             </div>
             <!--en el index iran las cards, es decir, los cuatro botones-->
@@ -316,7 +316,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="col-md-6">
                             <label for="numero_casa" class="form-label">Número de casa</label>
-                            <input type="text" name="txtNoCasa" class="form-control" id="numerocasa" autocomplete="off" required pattern="^[0-9]+" title="Numeros de 0 a 9."  required disabled>
+                            <input type="text" name="txtNoCasa" class="form-control" id="numerocasa" autocomplete="off" required pattern="^[0-9]+" title="Numeros de 0 a 9." required disabled>
                             <div class="invalid-feedback">
                                 Por favor escriba el número de casa.
                             </div>
@@ -354,7 +354,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="modal-footer">
                             <!-- En este botón lleva a una modal para confirmar que se quieren guardar los datos del residente-->
-                            <button class="btn btn-primary" name="btn-resi-agr" type="submit">Guardar</button>
+                            <button class="btn btn-primary" name="btn-resi-agr" type="submit" onclick='return confirmacion()'>Guardar</button>
 
                             <!-- En este botón cierra el modal para residente-->
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -563,7 +563,7 @@ if (empty($_SESSION["usuario"])) {
                         <div class="modal-footer">
 
 
-                            <button name="btn-agr-pago" class="btn btn-primary" type="submit">Guardar</button>
+                            <button name="btn-agr-pago" class="btn btn-primary" type="submit" onclick='return confirmacion()'>Guardar</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 
                         </div>
@@ -642,7 +642,7 @@ if (empty($_SESSION["usuario"])) {
                         <div class="modal-footer">
 
                             <!-- En este botón lleva a una modal para confirmar que se quieren guardar los datos -->
-                            <button name="btn-dom-agr" class="btn btn-primary" type="submit">Guardar</button>
+                            <button name="btn-dom-agr" class="btn btn-primary" type="submit" onclick='return confirmacion()'>Guardar</button>
                             <!-- -->
 
                             <!-- En este botón cierra el modal -->
@@ -659,7 +659,7 @@ if (empty($_SESSION["usuario"])) {
     </div>
     <!--end modal fade-->
 
-
+    <script src="../js/alertas.js"></script>
 </body>
 
 </html>
