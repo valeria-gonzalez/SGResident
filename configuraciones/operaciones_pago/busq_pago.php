@@ -108,7 +108,7 @@ $consulta_adeudo = $conexion -> query($query_adeudo);
                                                 <i id = "eliminar" class="fa-solid fa-user-slash"></i></a>
 
                                             <figcaption class="texto">Recibo</figcaption>
-                                            <a href="../../secciones/recibo_id.php?id_=<?php echo $row['ID_PAGO']; ?>">
+                                            <a target = "blank" href="../../secciones/recibo_id.php?id_=<?php echo $row['ID_PAGO']; ?>">
                                                 <i class="fa-solid fa-receipt" id="editar"></i>
                                             </a>
                                         </div>

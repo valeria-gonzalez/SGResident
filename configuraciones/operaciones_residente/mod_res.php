@@ -124,7 +124,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="nombre_residente" class="form-label">Nombre(s)</label>
-                            <input type="text" name="txtNombre" class="form-control" id="nombreresidente" autocomplete="off" value = "<?php echo $titular[1]; ?>">
+                            <input type="text" name="txtNombre" class="form-control" id="nombreresidente" autocomplete="off" value = "<?php echo $titular[1]; ?>" maxlength="50" pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -136,7 +136,7 @@
 
                         <div class="col-md-4">
                             <label for="apellido_1_residente" class="form-label">Apellido 1</label>
-                            <input type="text" name="txtApellido1" class="form-control" id="apellido_1_residente" autocomplete="off" value = "<?php echo $titular[2];?>">
+                            <input type="text" name="txtApellido1" class="form-control" id="apellido_1_residente" autocomplete="off" value = "<?php echo $titular[2];?>" maxlength="50" pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -148,7 +148,7 @@
 
                         <div class="col-md-4">
                             <label for="apellido_2_residente" class="form-label">Apellido 2</label>
-                            <input type="text" name="txtApellido2" class="form-control" id="apellido_2_residente" autocomplete="off" value = "<?php echo $titular[3];?>">
+                            <input type="text" name="txtApellido2" class="form-control" id="apellido_2_residente" autocomplete="off" value = "<?php echo $titular[3];?>" maxlength="50" pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="valid-feedback">
                                 OK!
                             </div>
@@ -162,7 +162,7 @@
                             <label for="edad" class="form-label">Edad</label>
                             <div class="input-group has-validation">
 
-                                <input type="number" name="txtEdad" class="form-control" id="edad" aria-describedby="inputGroupPrepend" 
+                                <input type="number" name="txtEdad" class="form-control" id="edad" aria-describedby="inputGroupPrepend" autocomplete="off" minlength="3" pattern="[0-9+]" title="Numeros de 0 a 9.">
                                         autocomplete="off" value = "<?php echo $titular[5];?>">
                                 <div class="invalid-feedback">
                                     Por favor ponga la edad
@@ -199,18 +199,18 @@
 
                         <div class="col-md-6">
                             <label for="telefono" class="form-label">Telefono</label>
-                            <input type="text" name="txtTelefono" class="form-control" id="telefono" autocomplete="off" value = "<?php echo $titular[7]; ?>">
+                            <input type="text" name="txtTelefono" class="form-control" id="telefono" autocomplete="off" value = "<?php echo $titular[7]; ?>" minlength="10" maxlength="25" pattern="^[0-9]+" title="Numeros de 0 a 9. Tamaño máximo: 25 digitos">
                             <div class="invalid-feedback">
-                                Numero a 10 digitos.
+                                Numero de preferencia a 10 digitos o más.
                             </div>
                         </div>
                         <!--end col-md-6-->
 
                         <div class="col-md-6">
                             <label for="celular" class="form-label">Celular</label>
-                            <input type="text" name="txtCelular" class="form-control" id="celular" type="number" autocomplete="off" value = "<?php echo $titular[6];?>">
+                            <input type="text" name="txtCelular" class="form-control" id="celular" type="number" autocomplete="off" value = "<?php echo $titular[6];?>" minlength="10" maxlength="25" pattern="^[0-9]+" title="Numeros de 0 a 9. Tamaño máximo: 25 digitos">
                             <div class="invalid-feedback">
-                                Numero a 10 digitos.
+                                Numero de preferencia a 10 digitos o más.
                             </div>
                         </div>
                         <!--end col-md-6-->
@@ -268,7 +268,7 @@
 
                         <div class="col-md-6">
                             <label for="domicilio" class="form-label">Calle</label>
-                            <input type="text" name="txtDomicilio" class="form-control" id="domicilio" autocomplete="off" disabled value = "<?php echo $dom[0]; ?>">
+                            <input type="text" name="txtDomicilio" class="form-control" id="domicilio" maxlength="50" pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50."  autocomplete="off" disabled value = "<?php echo $dom[0]; ?>">
                             <div class="invalid-feedback">
                                 Por favor escriba la calle.
                             </div>
@@ -277,7 +277,7 @@
 
                         <div class="col-md-6">
                             <label for="numero_casa" class="form-label">Número de casa</label>
-                            <input type="text" name="txtNoCasa" class="form-control" id="numerocasa" autocomplete="off" disabled value = "<?php echo $dom[1]; ?>">
+                            <input type="text" name="txtNoCasa" class="form-control" id="numerocasa" autocomplete="off" disabled pattern="^[0-9]+" title="Numeros de 0 a 9." value = "<?php echo $dom[1]; ?>">
                             <div class="invalid-feedback">
                                 Por favor escriba el número de casa.
                             </div>
@@ -286,7 +286,7 @@
 
                         <div class="col-md-6">
                             <label for="entrevialidad_1" class="form-label">Entre vialidad 1</label>
-                            <input type="text" name="txtVialidad1" class="form-control" id="entrevialidad1" autocomplete="off" disabled value = "<?php echo $dom[2]; ?>">
+                            <input type="text" name="txtVialidad1" class="form-control" id="entrevialidad1" autocomplete="off" disabled value = "<?php echo $dom[2]; ?>" maxlength="50" pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="invalid-feedback">
                                 Por favor escriba la entre vialidad 1.
                             </div>
@@ -295,7 +295,7 @@
 
                         <div class="col-md-6">
                             <label for="entrevialidad_2" class="form-label">Entre vialidad 2</label>
-                            <input type="text" name="txtVialidad2" class="form-control" id="entrevialidad2" autocomplete="off" disabled value = "<?php echo $dom[3]; ?>">
+                            <input type="text" name="txtVialidad2" class="form-control" id="entrevialidad2" autocomplete="off" disabled value = "<?php echo $dom[3]; ?>" maxlength="50" pattern="[A-Za-z]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="invalid-feedback">
                                 Por favor escriba la entre vialidad 2.
                             </div>
@@ -304,7 +304,7 @@
 
                         <div class="col-12">
                             <label for="referencias" class="form-label">Referencias</label>
-                            <input type="text" name="txtReferencias" class="form-control" id="referencias" autocomplete="off" disabled value = "<?php echo $dom[4]; ?>">
+                            <input type="text" name="txtReferencias" class="form-control" id="referencias" autocomplete="off" disabled value = "<?php echo $dom[4]; ?>" pattern="[A-Za-z0-9]{1,50}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 50.">
                             <div class="invalid-feedback">
                                 Por favor escriba algunas referencias.
                             </div>

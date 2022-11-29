@@ -175,7 +175,7 @@ body {
 .form-body .simple{
     color: var(--clr-gray);
     margin-top: 0px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     background: transparent;
     text-decoration: underline;
     border: none;

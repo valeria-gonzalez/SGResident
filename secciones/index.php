@@ -1,5 +1,10 @@
 <?php
 include_once '../configuraciones/conexion_bd.php';
+session_start();
+if (empty($_SESSION["usuario"])) {
+
+    header("location: ../index.php");
+}
 ?>
 
 <!doctype HTML>
