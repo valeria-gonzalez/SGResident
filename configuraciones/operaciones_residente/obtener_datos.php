@@ -69,9 +69,4 @@
             return $_POST['existe-dom'];
     }
 
-    function modDom(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['mod-dom'];
-    }
-
 ?>

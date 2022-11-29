@@ -31,15 +31,15 @@
             </div>
             <div class="form">
                 <form method="post" action="">
-                    <input type="text" placeholder="Nombre de usuario" name="usuario" />
-                    <input type="password" placeholder="Contraseña" name="password" />
+                    <input type="text" placeholder="Nombre de usuario" name="usuario" autocomplete = "off" required />
+                    <input type="password" placeholder="Contraseña" name="password" autocomplete = "off" required/>
                     <button name="botoningresar">Iniciar sesión</button>
 
 
                 </form>
 
                 <a href="preguntaseguridad.php">
-                    <button typeclass="simple">Olvidaste tus credenciales?</button>
+                    <button class="simple">Olvidaste tus credenciales?</button>
                 </a>
             </div>
 
