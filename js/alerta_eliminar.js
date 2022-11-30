@@ -25,4 +25,8 @@ function confirmacion_rec(){
         return false;
 }
 
+function confirm_register(){
+    var respuesta = alert("Registro ingresado correctamente");
+}
+
 

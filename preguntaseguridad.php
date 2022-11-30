@@ -31,12 +31,15 @@
             </div>
             <div class="form">
                 <form method="post" action="">
-                    <input type="text" placeholder="Respuesta" name="respuesta" />
+                    <input type="password" placeholder="Respuesta" name="respuesta" autocomplete = "off" required/>
 
                     <button name="enviar">Enviar</button>
 
 
                 </form>
+                <a href="index.php">
+                    <button class="simple" id = "contra">Cancelar</button>
+                </a>
 
 
             </div>
@@ -63,16 +66,6 @@
         form1.onclick = function() {
             form1.classList.toggle('active')
         }
-
-        setTimeout(() => {
-            const box = document.getElementById('alert');
-
-            // 👇️ removes element from DOM
-            box.style.display = 'none';
-
-            // 👇️ hides element (still takes up space on page)
-            // box.style.visibility = 'hidden';
-        }, 2500);
     </script>
 </body>
 

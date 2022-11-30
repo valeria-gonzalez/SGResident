@@ -593,7 +593,7 @@
 
 
                         <div class="modal-footer">
-                            <button name="btn-mod-pago" class="btn btn-primary" type="submit">Guardar</button>
+                            <button name="btn-mod-pago" class="btn btn-primary" type="submit" onclick='return modificar()'>Guardar</button>
 
                             <a href = "../../secciones/vista_pago.php">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -607,5 +607,6 @@
     </div>
     <?php $IPATH = $_SERVER["DOCUMENT_ROOT"] . "/sgclaro/cabeceras/";
     include($IPATH . "scripts-fin.html"); ?>
+    <script src="../../js/alertas.js"></script>
 </body>
 </html>

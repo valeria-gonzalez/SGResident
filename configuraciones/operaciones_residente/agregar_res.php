@@ -2,7 +2,12 @@
     include_once '../conexion_bd.php';
     include_once 'obtener_datos.php';
 
+    $domicilio = getDomicilio();
+    $noCasa = getNoCasa();
     
+    $repetido_dom = "SELECT * FROM domicilio WHERE CALLE = '$domicilio' AND NO_CASA = '$noCasa'";
+    $query_repetido_dom = mysqli_query($conexion, $repetido_dom);
+
     if(isset($_POST['btn-resi-agr'])){
         $nombres = getNombres();
         $apellido1 = getApellido1();
@@ -12,6 +17,8 @@
         $telefono = getTelefono();
         $celular = getCelular();
         $existeDom = existeDom();
+
+        if(mysqli_num_rows($query_repetido_dom) == 0){
 
         $insert_tit = "INSERT INTO titular(NOMBRE, PR_APELL, SEG_APELL, SEXO, EDAD, CELULAR, TEL_CASA) 
                   VALUES ('$nombres', '$apellido1', '$apellido2', '$sexo', $edad, '$celular', '$telefono')";
@@ -29,7 +36,7 @@
                 $vialidad1 = getVialidad1();
                 $vialidad2 = getVialidad2();
                 $referencias = getReferencias();
-
+            
                 $insert_dom = "INSERT INTO domicilio (CALLE, NO_CASA, VIALIDAD_1, VIALIDAD_2, REFERENCIAS, ID_TITULAR)
                                 VALUES ('$domicilio', $noCasa, '$vialidad1', '$vialidad2', '$referencias', $id_tit[0])";
                 
@@ -42,9 +49,8 @@
                 $resultado_dom = mysqli_query($conexion, $insert_dom);
             }
         }
-
-        $cerrar_cn = mysqli_close($conexion);
-        header("location: ../../secciones/index.php");
     }
-    
+        $cerrar_cn = mysqli_close($conexion);
+         header("location: ../../secciones/index.php");    
+}
 ?>

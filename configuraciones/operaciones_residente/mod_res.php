@@ -320,7 +320,7 @@
                         <div class="modal-footer">
                             <!-- En este botón lleva a una modal para confirmar que se quieren guardar los datos del residente-->
                             
-                            <button class="btn btn-primary" name="btn-resi-mod" type="submit">Guardar</button>
+                            <button class="btn btn-primary" name="btn-resi-mod" type="submit" onclick='return modificar()'>Guardar</button>
                             
                             <!-- En este botón cierra el modal para residente-->
                             <a href = "../../secciones/vista_res.php">
@@ -342,5 +342,6 @@
     <!--end modal fade-->
     <?php $IPATH = $_SERVER["DOCUMENT_ROOT"] . "/sgclaro/cabeceras/";
     include($IPATH . "scripts-fin.html"); ?>
+    <script src="../../js/alertas.js"></script>
 </body>
 </html>
