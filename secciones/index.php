@@ -227,7 +227,7 @@ if (empty($_SESSION["usuario"])) {
                             <label for="edad" class="form-label">Edad</label>
                             <div class="input-group has-validation">
 
-                                <input type="number" name="txtEdad" class="form-control" id="edad" aria-describedby="inputGroupPrepend" required autocomplete="off" minlength="3" required pattern="[0-9+]" title="Numeros de 0 a 9.">
+                                <input type="number" name="txtEdad" min = 0 class="form-control" id="edad" aria-describedby="inputGroupPrepend" required autocomplete="off" minlength="3" required pattern="[0-9+]" title="Numeros de 0 a 9.">
                                 <div class="invalid-feedback">
                                     Por favor ponga la edad
                                 </div>
@@ -494,7 +494,7 @@ if (empty($_SESSION["usuario"])) {
                             <label for="monto" class="form-label">Monto a pagar</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend3">$</span>
-                                <input name="txtMonto" autocomplete="off" type="number" step="0.01" value="320" class="form-control is-invalid" id="monto" aria-describedby="inputGroupPrepend3 montoFeedback" required="">
+                                <input name="txtMonto" autocomplete="off" type="number" min = 0 step="0.01" value="320" class="form-control is-invalid" id="monto" aria-describedby="inputGroupPrepend3 montoFeedback" required="">
                             </div>
                         </div>
 
@@ -502,7 +502,7 @@ if (empty($_SESSION["usuario"])) {
                             <label for="recibido" class="form-label">Monto recibido</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend3">$</span>
-                                <input name="txtRecibido" autocomplete="off" type="number" step="0.01" value="320" class="form-control is-invalid" id="recibido" aria-describedby="inputGroupPrepend3 montoFeedback" required="">
+                                <input name="txtRecibido" autocomplete="off" type="number" min = 0 step="0.01" value="320" class="form-control is-invalid" id="recibido" aria-describedby="inputGroupPrepend3 montoFeedback" required="">
                             </div>
                         </div>
 

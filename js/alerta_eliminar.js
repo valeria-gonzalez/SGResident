@@ -15,3 +15,14 @@ function confirmar_venta(){
     else
         return false;
 }
+
+function confirmacion_rec(){
+    var respuesta = confirm("¿Está seguro que desea recuperar este registro?");
+
+    if(respuesta == true)
+        return true;
+    else
+        return false;
+}
+
+
