@@ -70,3 +70,14 @@
         width: 100%;
     }
 }
+
+.styled-table #editar {
+    font-size: 25px;
+    color: #0015ff;
+}
+
+.styled-table #editar:hover {
+    transition: .2s;
+    transform: translateY(-3px) scale(1.05);
+    color: #e2a415;
+}

@@ -7,7 +7,11 @@
     $rsD = mysqli_query($conexion, "SELECT * FROM domicilio WHERE ID_TITULAR = $id");
 
     $titular = mysqli_fetch_array($rsT);
-    $dom = mysqli_fetch_array($rsD);
+    
+    if(mysqli_num_rows($rsD) > 0)
+        $dom = mysqli_fetch_array($rsD);
+    else
+        $dom = array("NA","NA","NA","NA","NA");
     
     if(isset($_POST['btn-resi-mod'])){
         
@@ -162,7 +166,7 @@
                             <label for="edad" class="form-label">Edad</label>
                             <div class="input-group has-validation">
 
-                                <input type="number" name="txtEdad" class="form-control" id="edad" aria-describedby="inputGroupPrepend" autocomplete="off" minlength="3" pattern="[0-9+]" title="Numeros de 0 a 9."
+                                <input type="number" name="txtEdad" min = 0 class="form-control" id="edad" aria-describedby="inputGroupPrepend" autocomplete="off" minlength="3" pattern="[0-9+]" title="Numeros de 0 a 9."
                                         autocomplete="off" value = "<?php echo $titular[5];?>">
                                 <div class="invalid-feedback">
                                     Por favor ponga la edad

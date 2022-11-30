@@ -459,6 +459,23 @@ body{
     margin-top: 15px;
 }
 
+.main-title h2{
+    color: var(--clr-mustard);
+    font-size: 1.3em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.main-title h3{
+    color: var(--clr-gray);
+    font-weight: 500;
+    font-size: 1.1em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
 .main-title p{
     font-size: 0.9em;
     font-weight: 300;

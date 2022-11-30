@@ -513,7 +513,7 @@
                             <label for="monto" class="form-label">Monto a pagar</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend3">$</span>
-                                <input name="txtMonto" autocomplete="off" type="number" step="0.01" value = "<?php echo $pago[2]; ?>" class="form-control is-invalid" id="monto" aria-describedby="inputGroupPrepend3 montoFeedback">
+                                <input name="txtMonto" autocomplete="off" type="number" min = 0 step="0.01" value = "<?php echo $pago[2]; ?>" class="form-control is-invalid" id="monto" aria-describedby="inputGroupPrepend3 montoFeedback">
                             </div>
                         </div>
 
@@ -521,7 +521,7 @@
                             <label for="recibido" class="form-label">Monto recibido</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend3">$</span>
-                                <input name="txtRecibido" autocomplete="off" type="number" step="0.01" value="<?php echo $pago[3]; ?>" class="form-control is-invalid" id="recibido" aria-describedby="inputGroupPrepend3 montoFeedback">
+                                <input name="txtRecibido" autocomplete="off" type="number" min = 0 step="0.01" value="<?php echo $pago[3]; ?>" class="form-control is-invalid" id="recibido" aria-describedby="inputGroupPrepend3 montoFeedback">
                             </div>
                         </div>
 
