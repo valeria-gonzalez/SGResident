@@ -181,8 +181,12 @@ body {
     border: none;
 }
 
+#contra.simple{
+    font-size: 0.9rem;
+}
+
 .form-body .simple:hover {
-    color: var(--clr-black);
+    color: rgb(243, 122, 122);
     background: transparent;
 }
 

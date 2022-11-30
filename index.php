@@ -31,7 +31,7 @@
             </div>
             <div class="form">
                 <form method="post" action="">
-                    <input type="text" placeholder="Nombre de usuario" name="usuario" autocomplete = "off" required />
+                    <input type="text" placeholder="Nombre de usuario" name="usuario" autocomplete = "off" required pattern="[A-Za-z0-9._-]+" title="Simbolos alfanuméricos._- solamente"  />
                     <input type="password" placeholder="Contraseña" name="password" autocomplete = "off" required/>
                     <button name="botoningresar">Iniciar sesión</button>
 
@@ -65,16 +65,6 @@
         form1.onclick = function() {
             form1.classList.toggle('active')
         }
-
-        setTimeout(() => {
-            const box = document.getElementById('alert');
-
-            // 👇️ removes element from DOM
-            box.style.display = 'none';
-
-            // 👇️ hides element (still takes up space on page)
-            // box.style.visibility = 'hidden';
-        }, 2500);
     </script>
 </body>
 

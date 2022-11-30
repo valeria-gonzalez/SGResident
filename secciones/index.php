@@ -44,10 +44,9 @@ if (empty($_SESSION["usuario"])) {
 
             <!--main content, aqui decides si poner las cards o el item-->
             <div class="main-title">
-                <h1 class="wow-title" id="index">Bienvenido de vuelta</h1>
-                <div class = "hi">
-                    <img src = "../src/waving-hand.png" alt = "hi">
-                </div>
+                <h1 class="wow-title" id="index">Bienvenido de vuelta <?php echo $_SESSION["usuario"]; ?>
+                    <img class = "hi" src = "../src/waving-hand.png" alt = "hi">
+                </h1>
             </div>
             <!--en el index iran las cards, es decir, los cuatro botones-->
             <div class="cardBox">
@@ -354,7 +353,7 @@ if (empty($_SESSION["usuario"])) {
 
                         <div class="modal-footer">
                             <!-- En este botón lleva a una modal para confirmar que se quieren guardar los datos del residente-->
-                            <button class="btn btn-primary" name="btn-resi-agr" type="submit">Guardar</button>
+                            <button class="btn btn-primary" name="btn-resi-agr" type="submit" onclick='return confirmacion()'>Guardar</button>
 
                             <!-- En este botón cierra el modal para residente-->
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -563,7 +562,7 @@ if (empty($_SESSION["usuario"])) {
                         <div class="modal-footer">
 
 
-                            <button name="btn-agr-pago" class="btn btn-primary" type="submit">Guardar</button>
+                            <button name="btn-agr-pago" class="btn btn-primary" type="submit" onclick='return confirmacion()'>Guardar</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 
                         </div>
@@ -642,7 +641,7 @@ if (empty($_SESSION["usuario"])) {
                         <div class="modal-footer">
 
                             <!-- En este botón lleva a una modal para confirmar que se quieren guardar los datos -->
-                            <button name="btn-dom-agr" class="btn btn-primary" type="submit">Guardar</button>
+                            <button name="btn-dom-agr" class="btn btn-primary" type="submit" onclick='return confirmacion()'>Guardar</button>
                             <!-- -->
 
                             <!-- En este botón cierra el modal -->
@@ -658,8 +657,7 @@ if (empty($_SESSION["usuario"])) {
         <!--end modal-dialog-->
     </div>
     <!--end modal fade-->
-
-
+    <script src="../js/alertas.js"></script>
 </body>
 
 </html>
